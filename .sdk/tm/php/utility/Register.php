@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// TarotCardMeanings SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+TarotCardMeaningsUtility::setRegistrar(function (TarotCardMeaningsUtility $u): void {
+    $u->clean = [TarotCardMeaningsClean::class, 'call'];
+    $u->done = [TarotCardMeaningsDone::class, 'call'];
+    $u->make_error = [TarotCardMeaningsMakeError::class, 'call'];
+    $u->feature_add = [TarotCardMeaningsFeatureAdd::class, 'call'];
+    $u->feature_hook = [TarotCardMeaningsFeatureHook::class, 'call'];
+    $u->feature_init = [TarotCardMeaningsFeatureInit::class, 'call'];
+    $u->fetcher = [TarotCardMeaningsFetcher::class, 'call'];
+    $u->make_fetch_def = [TarotCardMeaningsMakeFetchDef::class, 'call'];
+    $u->make_context = [TarotCardMeaningsMakeContext::class, 'call'];
+    $u->make_options = [TarotCardMeaningsMakeOptions::class, 'call'];
+    $u->make_request = [TarotCardMeaningsMakeRequest::class, 'call'];
+    $u->make_response = [TarotCardMeaningsMakeResponse::class, 'call'];
+    $u->make_result = [TarotCardMeaningsMakeResult::class, 'call'];
+    $u->make_point = [TarotCardMeaningsMakePoint::class, 'call'];
+    $u->make_spec = [TarotCardMeaningsMakeSpec::class, 'call'];
+    $u->make_url = [TarotCardMeaningsMakeUrl::class, 'call'];
+    $u->param = [TarotCardMeaningsParam::class, 'call'];
+    $u->prepare_auth = [TarotCardMeaningsPrepareAuth::class, 'call'];
+    $u->prepare_body = [TarotCardMeaningsPrepareBody::class, 'call'];
+    $u->prepare_headers = [TarotCardMeaningsPrepareHeaders::class, 'call'];
+    $u->prepare_method = [TarotCardMeaningsPrepareMethod::class, 'call'];
+    $u->prepare_params = [TarotCardMeaningsPrepareParams::class, 'call'];
+    $u->prepare_path = [TarotCardMeaningsPreparePath::class, 'call'];
+    $u->prepare_query = [TarotCardMeaningsPrepareQuery::class, 'call'];
+    $u->result_basic = [TarotCardMeaningsResultBasic::class, 'call'];
+    $u->result_body = [TarotCardMeaningsResultBody::class, 'call'];
+    $u->result_headers = [TarotCardMeaningsResultHeaders::class, 'call'];
+    $u->transform_request = [TarotCardMeaningsTransformRequest::class, 'call'];
+    $u->transform_response = [TarotCardMeaningsTransformResponse::class, 'call'];
+});

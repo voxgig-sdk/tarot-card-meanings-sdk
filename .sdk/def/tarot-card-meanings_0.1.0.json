@@ -1,0 +1,310 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Tarot Card Meanings",
+    "description": "Card names, descriptions, and divinatory meanings based on AE Waite's Pictorial Key to the Tarot (1910) for the Rider-Waite-Smith deck. Access via REST API with endpoints for getting cards and documentation.",
+    "version": "1.3",
+    "contact": {
+      "name": "API Documentation",
+      "url": "https://app.swaggerhub.com/apis/ekswagger/tarot-api/1.3"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://tarot-api-3hv5.onrender.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/v1/cards": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "Get all tarot cards",
+        "description": "Returns a list of all tarot cards with their names, descriptions, and divinatory meanings from the Rider-Waite-Smith deck.",
+        "operationId": "getCards",
+        "parameters": [
+          {
+            "name": "suit",
+            "in": "query",
+            "description": "Filter cards by suit (cups, pentacles, swords, wands, major)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "cups",
+                "pentacles",
+                "swords",
+                "wands",
+                "major"
+              ]
+            }
+          },
+          {
+            "name": "arcana",
+            "in": "query",
+            "description": "Filter cards by arcana type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "major",
+                "minor"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cards": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TarotCard"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cards/{nameShort}": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "Get a specific tarot card by short name",
+        "description": "Returns detailed information about a specific tarot card including its name, description, and divinatory meanings (upright and reversed).",
+        "operationId": "getCardByName",
+        "parameters": [
+          {
+            "name": "nameShort",
+            "in": "path",
+            "description": "Short name of the tarot card (e.g., 'ar01', 'wa02', 'cu10')",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ar01"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarotCard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Card not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cards/random": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "Get a random tarot card",
+        "description": "Returns a random tarot card from the deck with its full details including meanings.",
+        "operationId": "getRandomCard",
+        "parameters": [
+          {
+            "name": "n",
+            "in": "query",
+            "description": "Number of random cards to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 78,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TarotCard"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "cards": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/TarotCard"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TarotCard": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Full name of the tarot card",
+            "example": "The Magician"
+          },
+          "nameShort": {
+            "type": "string",
+            "description": "Short identifier for the card",
+            "example": "ar01"
+          },
+          "value": {
+            "type": "string",
+            "description": "Numeric value or rank of the card",
+            "example": "1"
+          },
+          "arcana": {
+            "type": "string",
+            "description": "Type of arcana",
+            "enum": [
+              "Major Arcana",
+              "Minor Arcana"
+            ],
+            "example": "Major Arcana"
+          },
+          "suit": {
+            "type": "string",
+            "description": "Suit of the card (for Minor Arcana)",
+            "enum": [
+              "cups",
+              "pentacles",
+              "swords",
+              "wands",
+              "major"
+            ],
+            "example": "major"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Description of the card imagery and symbolism",
+            "example": "A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes."
+          },
+          "meaningUp": {
+            "type": "string",
+            "description": "Divinatory meaning when card is upright",
+            "example": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male."
+          },
+          "meaningRev": {
+            "type": "string",
+            "description": "Divinatory meaning when card is reversed",
+            "example": "Physician, Magus, mental disease, disgrace, disquiet."
+          }
+        },
+        "required": [
+          "name",
+          "nameShort",
+          "arcana"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Cards",
+      "description": "Operations related to tarot cards"
+    }
+  ]
+}

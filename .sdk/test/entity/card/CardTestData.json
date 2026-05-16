@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "card": {
+      "CARD00": {
+        "arcana": "s50",
+        "desc": "s51",
+        "meaning_rev": "s52",
+        "meaning_up": "s53",
+        "name": "s54",
+        "name_short": "s55",
+        "suit": "s56",
+        "value": "s57"
+      },
+      "CARD01": {
+        "arcana": "sa0",
+        "desc": "sa1",
+        "meaning_rev": "sa2",
+        "meaning_up": "sa3",
+        "name": "sa4",
+        "name_short": "sa5",
+        "suit": "sa6",
+        "value": "sa7"
+      },
+      "CARD02": {
+        "arcana": "sf0",
+        "desc": "sf1",
+        "meaning_rev": "sf2",
+        "meaning_up": "sf3",
+        "name": "sf4",
+        "name_short": "sf5",
+        "suit": "sf6",
+        "value": "sf7"
+      }
+    }
+  },
+  "new": {
+    "card": {
+      "card_ref01": {
+        "arcana": "s140",
+        "desc": "s141",
+        "meaning_rev": "s142",
+        "meaning_up": "s143",
+        "name": "s144",
+        "name_short": "s145",
+        "suit": "s146",
+        "value": "s147"
+      }
+    }
+  }
+}

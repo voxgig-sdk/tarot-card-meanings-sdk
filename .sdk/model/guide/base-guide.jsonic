@@ -1,0 +1,22 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: card: {
+    path: "/api/v1/cards": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/cards/random": {
+      action: "random": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/cards/{nameShort}": {
+      rename: param: "nameShort": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}
