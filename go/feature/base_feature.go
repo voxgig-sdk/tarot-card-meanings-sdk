@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
 )
 
 type BaseFeature struct {

@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://tarot-api-3hv5.onrender.com',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
+import "github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

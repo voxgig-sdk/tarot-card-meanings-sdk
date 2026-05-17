@@ -1,10 +1,10 @@
 package voxgigtarotcardmeaningssdk
 
 import (
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/entity"
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/feature"
-	_ "github.com/voxgig-sdk/tarot-card-meanings-sdk/utility"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/entity"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/feature"
+	_ "github.com/voxgig-sdk/tarot-card-meanings-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

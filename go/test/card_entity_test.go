@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/tarot-card-meanings-sdk"
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
+	sdk "github.com/voxgig-sdk/tarot-card-meanings-sdk/go"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/tarot-card-meanings-sdk/go/utility/struct"
 )
 
 func TestCardEntity(t *testing.T) {

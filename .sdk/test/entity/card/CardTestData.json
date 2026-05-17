@@ -9,7 +9,8 @@
         "name": "s54",
         "name_short": "s55",
         "suit": "s56",
-        "value": "s57"
+        "value": "s57",
+        "id": "CARD00"
       },
       "CARD01": {
         "arcana": "sa0",
@@ -19,7 +20,8 @@
         "name": "sa4",
         "name_short": "sa5",
         "suit": "sa6",
-        "value": "sa7"
+        "value": "sa7",
+        "id": "CARD01"
       },
       "CARD02": {
         "arcana": "sf0",
@@ -29,7 +31,8 @@
         "name": "sf4",
         "name_short": "sf5",
         "suit": "sf6",
-        "value": "sf7"
+        "value": "sf7",
+        "id": "CARD02"
       }
     }
   },

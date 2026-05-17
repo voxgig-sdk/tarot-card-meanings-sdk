@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/tarot-card-meanings-sdk"
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
+	sdk "github.com/voxgig-sdk/tarot-card-meanings-sdk/go"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
 )
 
 func TestCardDirect(t *testing.T) {

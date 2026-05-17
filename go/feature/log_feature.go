@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/tarot-card-meanings-sdk/core"
+	"github.com/voxgig-sdk/tarot-card-meanings-sdk/go/core"
 )
 
 type LogFeature struct {
