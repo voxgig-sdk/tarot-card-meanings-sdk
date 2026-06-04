@@ -117,14 +117,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'TAROTCARDMEANINGS_TEST_CARD_ENTID': {},
     'TAROTCARDMEANINGS_TEST_LIVE': 'FALSE',
-    'TAROTCARDMEANINGS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.TAROTCARDMEANINGS_TEST_LIVE
 
   if (live) {
     const client = new TarotCardMeaningsSDK({
-      apikey: env.TAROTCARDMEANINGS_APIKEY,
     })
 
     let idmap: any = env['TAROTCARDMEANINGS_TEST_CARD_ENTID']

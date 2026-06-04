@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://tarot-api-3hv5.onrender.com",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
