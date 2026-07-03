@@ -175,12 +175,14 @@ func cardDirectSetup(mockres any) *cardDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TAROTCARDMEANINGS_TEST_CARD_ENTID": map[string]any{},
 		"TAROTCARDMEANINGS_TEST_LIVE":    "FALSE",
+		"TAROTCARDMEANINGS_APIKEY":       "NONE",
 	})
 
 	live := env["TAROTCARDMEANINGS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["TAROTCARDMEANINGS_APIKEY"],
 		}
 		client := sdk.NewTarotCardMeaningsSDK(mergedOpts)
 

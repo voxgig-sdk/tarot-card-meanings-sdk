@@ -1,22 +1,8 @@
 # TarotCardMeanings SDK
 
-Look up Rider-Waite-Smith tarot card names, descriptions, and divinatory meanings from AE Waite's 1910 Pictorial Key to the Tarot
+Tarot Card Meanings client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Tarot Card Meanings
-
-The Tarot Card Meanings API is a small REST service that returns card names, short descriptions, and upright / reversed divinatory meanings drawn from A. E. Waite's *The Pictorial Key to the Tarot* (1910), the companion book to the Rider-Waite-Smith deck. It is maintained by [ekelen](https://github.com/ekelen/tarot-api) and hosted on Render.
-
-What you get from the API:
-
-- `GET /api/v1/cards` — list every card in the deck
-- `GET /api/v1/cards/{name_short}` — fetch a single card by its short identifier
-- `GET /api/v1/cards/search` — search by name or by upright / reversed meaning (`q`, `meaning`, `meaning_rev`)
-- `GET /api/v1/cards/random?n=1` — draw one or more random cards
-- `GET /api/v1/cards/courts` — restrict results to the court cards
-
-The service is JSON over HTTPS, requires no API key, and has CORS enabled so browser clients can call it directly. Responses typically land in the 300-500 ms range. Card imagery is not bundled with the API; only the textual content from Waite's book is returned.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install tarot-card-meanings-sdk
 luarocks install tarot-card-meanings-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { TarotCardMeaningsSDK } from 'tarot-card-meanings'
 
-const client = new TarotCardMeaningsSDK({})
+const client = new TarotCardMeaningsSDK({
+  apikey: process.env.TAROT-CARD-MEANINGS_APIKEY,
+})
 
 // List all cards
 const cards = await client.Card().list()
+console.log(cards.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Card** | A single tarot card from the Rider-Waite-Smith deck, including its name, description, and divinatory meanings; exposed via `/api/v1/cards`, `/api/v1/cards/{name_short}`, `/api/v1/cards/search`, `/api/v1/cards/random`, and `/api/v1/cards/courts`. | `/api/v1/cards` |
+| **Card** |  | `/api/v1/cards` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from tarotcardmeanings_sdk import TarotCardMeaningsSDK
 
-client = TarotCardMeaningsSDK({})
+client = TarotCardMeaningsSDK({
+    "apikey": os.environ.get("TAROT-CARD-MEANINGS_APIKEY"),
+})
 
 # List all cards
-cards, err = client.Card(None).list(None, None)
+cards, err = client.Card().list()
+print(cards)
 
 # Load a specific card
-card, err = client.Card(None).load(
-    {"id": "example_id"}, None
-)
+card, err = client.Card().load({"id": "example_id"})
+print(card)
 ```
 
 ### PHP
@@ -131,15 +122,17 @@ card, err = client.Card(None).load(
 <?php
 require_once 'tarotcardmeanings_sdk.php';
 
-$client = new TarotCardMeaningsSDK([]);
+$client = new TarotCardMeaningsSDK([
+    "apikey" => getenv("TAROT-CARD-MEANINGS_APIKEY"),
+]);
 
 // List all cards
-[$cards, $err] = $client->Card(null)->list(null, null);
+[$cards, $err] = $client->Card()->list();
+print_r($cards);
 
 // Load a specific card
-[$card, $err] = $client->Card(null)->load(
-    ["id" => "example_id"], null
-);
+[$card, $err] = $client->Card()->load(["id" => "example_id"]);
+print_r($card);
 ```
 
 ### Golang
@@ -147,10 +140,13 @@ $client = new TarotCardMeaningsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/tarot-card-meanings-sdk/go"
 
-client := sdk.NewTarotCardMeaningsSDK(map[string]any{})
+client := sdk.NewTarotCardMeaningsSDK(map[string]any{
+    "apikey": os.Getenv("TAROT-CARD-MEANINGS_APIKEY"),
+})
 
 // List all cards
 cards, err := client.Card(nil).List(nil, nil)
+fmt.Println(cards)
 ```
 
 ### Ruby
@@ -158,15 +154,17 @@ cards, err := client.Card(nil).List(nil, nil)
 ```ruby
 require_relative "TarotCardMeanings_sdk"
 
-client = TarotCardMeaningsSDK.new({})
+client = TarotCardMeaningsSDK.new({
+  "apikey" => ENV["TAROT-CARD-MEANINGS_APIKEY"],
+})
 
 # List all cards
-cards, err = client.Card(nil).list(nil, nil)
+cards, err = client.Card().list
+puts cards
 
 # Load a specific card
-card, err = client.Card(nil).load(
-  { "id" => "example_id" }, nil
-)
+card, err = client.Card().load({ "id" => "example_id" })
+puts card
 ```
 
 ### Lua
@@ -174,15 +172,17 @@ card, err = client.Card(nil).load(
 ```lua
 local sdk = require("tarot-card-meanings_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("TAROT-CARD-MEANINGS_APIKEY"),
+})
 
 -- List all cards
-local cards, err = client:Card(nil):list(nil, nil)
+local cards, err = client:Card():list()
+print(cards)
 
 -- Load a specific card
-local card, err = client:Card(nil):load(
-  { id = "example_id" }, nil
-)
+local card, err = client:Card():load({ id = "example_id" })
+print(card)
 ```
 
 ## Unit testing in offline mode
@@ -201,25 +201,21 @@ const result = await client.Card().load({ id: 'test01' })
 ### Python
 
 ```python
-client = TarotCardMeaningsSDK.test(None, None)
-result, err = client.Card(None).load(
-    {"id": "test01"}, None
-)
+client = TarotCardMeaningsSDK.test()
+result, err = client.Card().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = TarotCardMeaningsSDK::test(null, null);
-[$result, $err] = $client->Card(null)->load(
-    ["id" => "test01"], null
-);
+$client = TarotCardMeaningsSDK::test();
+[$result, $err] = $client->Card()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Card(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -228,19 +224,15 @@ result, err := client.Card(nil).Load(
 ### Ruby
 
 ```ruby
-client = TarotCardMeaningsSDK.test(nil, nil)
-result, err = client.Card(nil).load(
-  { "id" => "test01" }, nil
-)
+client = TarotCardMeaningsSDK.test
+result, err = client.Card().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Card(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Card():load({ id = "test01" })
 ```
 
 ## How it works
@@ -344,16 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Tarot Card Meanings
-
-- Upstream: [https://tarot-api-3hv5.onrender.com](https://tarot-api-3hv5.onrender.com)
-- API docs: [https://github.com/ekelen/tarot-api](https://github.com/ekelen/tarot-api)
-
-- The API itself does not publish an explicit licence.
-- Card text is parsed from A. E. Waite's *The Pictorial Key to the Tarot* (1910), which is in the public domain.
-- Card imagery referenced by the project comes from the Rider-Waite 1909 deck, also public domain (see [sacred-texts.com](https://www.sacred-texts.com/tarot/xr/index.htm)).
-- Attribute Waite's text and the underlying deck when republishing.
 
 ---
 

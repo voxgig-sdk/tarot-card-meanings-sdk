@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'TAROT_CARD_MEANINGS_TEST_CARD_ENTID': idmap,
     'TAROT_CARD_MEANINGS_TEST_LIVE': 'FALSE',
     'TAROT_CARD_MEANINGS_TEST_EXPLAIN': 'FALSE',
+    'TAROT_CARD_MEANINGS_APIKEY': 'NONE',
   })
 
   idmap = env['TAROT_CARD_MEANINGS_TEST_CARD_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new TarotCardMeaningsSDK(merge([
       {
+        apikey: env.TAROT_CARD_MEANINGS_APIKEY,
       },
       extra
     ]))

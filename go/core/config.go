@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://tarot-api-3hv5.onrender.com",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -25,85 +28,87 @@ func MakeConfig() map[string]any {
 			"card": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "arcana",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "desc",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "meaning_rev",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "meaning_up",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "name",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "name_short",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 5,
 					},
 					map[string]any{
+						"active": true,
 						"name": "suit",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 6,
 					},
 					map[string]any{
+						"active": true,
 						"name": "value",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 7,
 					},
 				},
 				"name": "card",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "arcana",
 											"orig": "arcana",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "suit",
 											"orig": "suit",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -124,27 +129,27 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"example": "ar01",
 											"kind": "param",
 											"name": "id",
 											"orig": "name_short",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -170,20 +175,20 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": 1,
 											"kind": "query",
 											"name": "n",
 											"orig": "n",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 								},
@@ -205,11 +210,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 1,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},

@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://tarot-api-3hv5.onrender.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,85 +29,87 @@ def make_config():
       "card": {
         "fields": [
           {
+            "active": True,
             "name": "arcana",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "desc",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "meaning_rev",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "meaning_up",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "name_short",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 5,
           },
           {
+            "active": True,
             "name": "suit",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 6,
           },
           {
+            "active": True,
             "name": "value",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 7,
           },
         ],
         "name": "card",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "arcana",
                       "orig": "arcana",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "suit",
                       "orig": "suit",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -125,27 +130,27 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "ar01",
                       "kind": "param",
                       "name": "id",
                       "orig": "name_short",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -171,20 +176,20 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": 1,
                       "kind": "query",
                       "name": "n",
                       "orig": "n",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -206,11 +211,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 1,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

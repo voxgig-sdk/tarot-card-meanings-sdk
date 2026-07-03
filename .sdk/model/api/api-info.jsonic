@@ -17,29 +17,7 @@ main: {
       ]
       title: "Tarot Card Meanings"
       version: "1.3"
-      tagline: "Look up Rider-Waite-Smith tarot card names, descriptions, and divinatory meanings from AE Waite's 1910 Pictorial Key to the Tarot"
-      homepage: "https://tarot-api-3hv5.onrender.com"
-      docs_url: "https://github.com/ekelen/tarot-api"
-      license_short: "No explicit licence; source text (Waite, 1910) and Rider-Waite 1909 deck imagery are in the public domain."
-      license_md: `- The API itself does not publish an explicit licence.
-- Card text is parsed from A. E. Waite's *The Pictorial Key to the Tarot* (1910), which is in the public domain.
-- Card imagery referenced by the project comes from the Rider-Waite 1909 deck, also public domain (see [sacred-texts.com](https://www.sacred-texts.com/tarot/xr/index.htm)).
-- Attribute Waite's text and the underlying deck when republishing.`
-      about_md: `The Tarot Card Meanings API is a small REST service that returns card names, short descriptions, and upright / reversed divinatory meanings drawn from A. E. Waite's *The Pictorial Key to the Tarot* (1910), the companion book to the Rider-Waite-Smith deck. It is maintained by [ekelen](https://github.com/ekelen/tarot-api) and hosted on Render.
-
-What you get from the API:
-
-- \`GET /api/v1/cards\` — list every card in the deck
-- \`GET /api/v1/cards/{name_short}\` — fetch a single card by its short identifier
-- \`GET /api/v1/cards/search\` — search by name or by upright / reversed meaning (\`q\`, \`meaning\`, \`meaning_rev\`)
-- \`GET /api/v1/cards/random?n=1\` — draw one or more random cards
-- \`GET /api/v1/cards/courts\` — restrict results to the court cards
-
-The service is JSON over HTTPS, requires no API key, and has CORS enabled so browser clients can call it directly. Responses typically land in the 300-500 ms range. Card imagery is not bundled with the API; only the textual content from Waite's book is returned.`
-      entity_desc: {
-        card: "A single tarot card from the Rider-Waite-Smith deck, including its name, description, and divinatory meanings; exposed via `/api/v1/cards`, `/api/v1/cards/{name_short}`, `/api/v1/cards/search`, `/api/v1/cards/random`, and `/api/v1/cards/courts`."
-      }
-      auth: false
     }
   }
 }
+

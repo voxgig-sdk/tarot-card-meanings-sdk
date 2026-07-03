@@ -129,6 +129,7 @@ func cardBasicSetup(extra map[string]any) *entityTestSetup {
 		"TAROTCARDMEANINGS_TEST_CARD_ENTID": idmap,
 		"TAROTCARDMEANINGS_TEST_LIVE":      "FALSE",
 		"TAROTCARDMEANINGS_TEST_EXPLAIN":   "FALSE",
+		"TAROTCARDMEANINGS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["TAROTCARDMEANINGS_TEST_CARD_ENTID"])
@@ -139,6 +140,7 @@ func cardBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["TAROTCARDMEANINGS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["TAROTCARDMEANINGS_APIKEY"],
 			},
 			extra,
 		})

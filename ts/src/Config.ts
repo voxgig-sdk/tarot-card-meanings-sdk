@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://tarot-api-3hv5.onrender.com',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,85 +59,87 @@ class Config {
     "card": {
       "fields": [
         {
+          "active": true,
           "name": "arcana",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "desc",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "meaning_rev",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "meaning_up",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "name",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "name_short",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "suit",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "value",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 7
         }
       ],
       "name": "card",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "arcana",
                     "orig": "arcana",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "suit",
                     "orig": "suit",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -154,27 +160,27 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "ar01",
                     "kind": "param",
                     "name": "id",
                     "orig": "name_short",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -200,20 +206,20 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "n",
                     "orig": "n",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -235,11 +241,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

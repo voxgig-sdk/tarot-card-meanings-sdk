@@ -106,12 +106,14 @@ def _card_direct_setup(mockres):
     env = runner.env_override({
         "TAROTCARDMEANINGS_TEST_CARD_ENTID": {},
         "TAROTCARDMEANINGS_TEST_LIVE": "FALSE",
+        "TAROTCARDMEANINGS_APIKEY": "NONE",
     })
 
     live = env.get("TAROTCARDMEANINGS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("TAROTCARDMEANINGS_APIKEY"),
         }
         client = TarotCardMeaningsSDK(merged_opts)
         return {

@@ -89,6 +89,7 @@ def card_basic_setup(extra)
     "TAROTCARDMEANINGS_TEST_CARD_ENTID" => idmap,
     "TAROTCARDMEANINGS_TEST_LIVE" => "FALSE",
     "TAROTCARDMEANINGS_TEST_EXPLAIN" => "FALSE",
+    "TAROTCARDMEANINGS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -100,6 +101,7 @@ def card_basic_setup(extra)
   if env["TAROTCARDMEANINGS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["TAROTCARDMEANINGS_APIKEY"],
       },
       extra || {},
     ])
