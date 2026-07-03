@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/tarot-card-meanings",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Tarot Card Meanings public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "tarot-card-meanings"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/tarot-card-meanings-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/tarot-card-meanings-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/tarot-card-meanings-sdk/issues"
+  },
   "main": "dist/TarotCardMeaningsSDK.js",
   "type": "commonjs",
   "types": "dist/TarotCardMeaningsSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "TarotCardMeanings",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

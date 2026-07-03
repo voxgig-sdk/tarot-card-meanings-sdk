@@ -10,7 +10,7 @@ The Lua SDK for the TarotCardMeanings API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install tarot-card-meanings-sdk
+luarocks install voxgig-sdk-tarot-card-meanings
 ```
 
 If the module is not yet published, add the source directory to

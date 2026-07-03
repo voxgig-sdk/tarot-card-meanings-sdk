@@ -10,7 +10,7 @@ The PHP SDK for the TarotCardMeanings API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/tarot-card-meanings-sdk
+composer require voxgig-sdk/tarot-card-meanings
 ```
 
 

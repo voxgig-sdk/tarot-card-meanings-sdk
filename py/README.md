@@ -10,7 +10,7 @@ The Python SDK for the TarotCardMeanings API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install tarot-card-meanings-sdk
+pip install voxgig-sdk-tarot-card-meanings
 ```
 
 Or install from source:

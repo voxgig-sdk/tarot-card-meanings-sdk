@@ -10,7 +10,7 @@ The TypeScript SDK for the TarotCardMeanings API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install tarot-card-meanings
+npm install @voxgig-sdk/tarot-card-meanings
 ```
 ## Tutorial: your first API call
 

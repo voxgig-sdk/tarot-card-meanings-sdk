@@ -10,13 +10,13 @@ The Ruby SDK for the TarotCardMeanings API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install tarot-card-meanings-sdk
+gem install voxgig-sdk-tarot-card-meanings
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "tarot-card-meanings-sdk"
+gem "voxgig-sdk-tarot-card-meanings"
 ```
 
 Then run:
