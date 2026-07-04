@@ -2,6 +2,8 @@
 
 import { CardEntity } from './entity/CardEntity'
 
+export type * from './TarotCardMeaningsTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class TarotCardMeaningsSDK {
 
 
 
+  _card?: CardEntity
+
+  // Idiomatic facade: `client.card.list()` / `client.card.load({ id })`.
+  get card(): CardEntity {
+    return (this._card ??= new CardEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.card` instead. */
   Card(data?: any) {
     const self = this
     return new CardEntity(self,data)

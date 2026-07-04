@@ -50,14 +50,12 @@ class CardEntityTest extends TestCase
         $card_ref01_ent = $client->Card(null);
         $card_ref01_match = [];
 
-        [$card_ref01_list_result, $err] = $card_ref01_ent->list($card_ref01_match, null);
-        $this->assertNull($err);
+        $card_ref01_list_result = $card_ref01_ent->list($card_ref01_match, null);
         $this->assertIsArray($card_ref01_list_result);
 
         // LOAD
         $card_ref01_match_dt0 = [];
-        [$card_ref01_data_dt0_loaded, $err] = $card_ref01_ent->load($card_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $card_ref01_data_dt0_loaded = $card_ref01_ent->load($card_ref01_match_dt0, null);
         $this->assertNotNull($card_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function card_basic_setup($extra)
         "TAROTCARDMEANINGS_TEST_CARD_ENTID" => $idmap,
         "TAROTCARDMEANINGS_TEST_LIVE" => "FALSE",
         "TAROTCARDMEANINGS_TEST_EXPLAIN" => "FALSE",
-        "TAROTCARDMEANINGS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function card_basic_setup($extra)
     if ($env["TAROTCARDMEANINGS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TAROTCARDMEANINGS_APIKEY"],
             ],
             $extra ?? [],
         ]);

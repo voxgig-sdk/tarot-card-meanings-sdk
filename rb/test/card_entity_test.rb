@@ -43,14 +43,12 @@ class CardEntityTest < Minitest::Test
     card_ref01_ent = client.Card(nil)
     card_ref01_match = {}
 
-    card_ref01_list_result, err = card_ref01_ent.list(card_ref01_match, nil)
-    assert_nil err
+    card_ref01_list_result = card_ref01_ent.list(card_ref01_match, nil)
     assert card_ref01_list_result.is_a?(Array)
 
     # LOAD
     card_ref01_match_dt0 = {}
-    card_ref01_data_dt0_loaded, err = card_ref01_ent.load(card_ref01_match_dt0, nil)
-    assert_nil err
+    card_ref01_data_dt0_loaded = card_ref01_ent.load(card_ref01_match_dt0, nil)
     assert !card_ref01_data_dt0_loaded.nil?
 
   end
@@ -89,7 +87,6 @@ def card_basic_setup(extra)
     "TAROTCARDMEANINGS_TEST_CARD_ENTID" => idmap,
     "TAROTCARDMEANINGS_TEST_LIVE" => "FALSE",
     "TAROTCARDMEANINGS_TEST_EXPLAIN" => "FALSE",
-    "TAROTCARDMEANINGS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def card_basic_setup(extra)
   if env["TAROTCARDMEANINGS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TAROTCARDMEANINGS_APIKEY"],
       },
       extra || {},
     ])

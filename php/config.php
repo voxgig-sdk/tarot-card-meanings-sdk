@@ -20,9 +20,6 @@ class TarotCardMeaningsConfig
             ],
             "options" => [
                 "base" => "https://tarot-api-3hv5.onrender.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -156,6 +153,7 @@ class TarotCardMeaningsConfig
                         'orig' => 'name_short',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

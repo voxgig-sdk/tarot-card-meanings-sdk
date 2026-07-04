@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://tarot-api-3hv5.onrender.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -180,7 +176,8 @@ class Config {
                     "name": "id",
                     "orig": "name_short",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

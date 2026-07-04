@@ -50,14 +50,12 @@ class TestCardEntity:
         card_ref01_ent = client.Card(None)
         card_ref01_match = {}
 
-        card_ref01_list_result, err = card_ref01_ent.list(card_ref01_match, None)
-        assert err is None
+        card_ref01_list_result = card_ref01_ent.list(card_ref01_match, None)
         assert isinstance(card_ref01_list_result, list)
 
         # LOAD
         card_ref01_match_dt0 = {}
-        card_ref01_data_dt0_loaded, err = card_ref01_ent.load(card_ref01_match_dt0, None)
-        assert err is None
+        card_ref01_data_dt0_loaded = card_ref01_ent.load(card_ref01_match_dt0, None)
         assert card_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _card_basic_setup(extra):
         "TAROTCARDMEANINGS_TEST_CARD_ENTID": idmap,
         "TAROTCARDMEANINGS_TEST_LIVE": "FALSE",
         "TAROTCARDMEANINGS_TEST_EXPLAIN": "FALSE",
-        "TAROTCARDMEANINGS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _card_basic_setup(extra):
     if env.get("TAROTCARDMEANINGS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TAROTCARDMEANINGS_APIKEY"),
             },
             extra or {},
         ])

@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:card():list() / client:card():load({ id = ... })
+function TarotCardMeaningsSDK:card(data)
+  local EntityMod = require("entity.card_entity")
+  if data == nil then
+    if self._card == nil then
+      self._card = EntityMod.new(self, nil)
+    end
+    return self._card
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:card() instead.
 function TarotCardMeaningsSDK:Card(data)
   local EntityMod = require("entity.card_entity")
   return EntityMod.new(self, data)

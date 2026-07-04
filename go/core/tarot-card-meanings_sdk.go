@@ -245,6 +245,9 @@ func (sdk *TarotCardMeaningsSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Card returns a Card entity bound to this client.
+// Idiomatic usage: client.Card(nil).List(nil, nil) or
+// client.Card(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TarotCardMeaningsSDK) Card(data map[string]any) TarotCardMeaningsEntity {
 	return NewCardEntityFunc(sdk, data)
 }

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `TarotCardMeaningsSDK.test()`.
 ## CardEntity
 
 ```ts
-const card = client.Card()
+const card = client.card
 ```
 
 ### Fields
@@ -133,7 +132,7 @@ const card = client.Card()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Card().list()
+const results = await client.card.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -141,7 +140,7 @@ const results = await client.Card().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Card().load({ id: 'card_id' })
+const result = await client.card.load({ id: 'card_id' })
 ```
 
 ### Common Methods
