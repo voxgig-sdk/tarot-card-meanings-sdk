@@ -29,18 +29,16 @@ require_once 'tarotcardmeanings_sdk.php';
 $client = new TarotCardMeaningsSDK();
 ```
 
-### 2. List cards
+### 2. List card records
 
 ```php
 try {
-    $result = $client->card()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Card records — iterate directly.
+    $cards = $client->Card()->list();
+    foreach ($cards as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->card()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Card record (throws on error).
+    $card = $client->Card()->load(["id" => "example_id"]);
+    print_r($card);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = TarotCardMeaningsSDK::test();
+$client = TarotCardMeaningsSDK::test([
+    "entity" => ["card" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->card()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$card = $client->Card()->load(["id" => "test01"]);
+print_r($card);
 ```
 
 ### Use a custom fetch function
@@ -246,7 +249,7 @@ API path: `/api/v1/cards`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `$card = $client->Card();`
 
 #### Operations
 
@@ -270,14 +273,16 @@ Create an instance: `const card = client.card`
 
 #### Example: Load
 
-```ts
-const card = await client.card.load({ id: 'card_id' })
+```php
+// load() returns the bare Card record (throws on error).
+$card = $client->Card()->load(["id" => "card_id"]);
 ```
 
 #### Example: List
 
-```ts
-const cards = await client.card.list()
+```php
+// list() returns an array of Card records (throws on error).
+$cards = $client->Card()->list();
 ```
 
 
@@ -352,7 +357,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$card = $client->card();
+$card = $client->Card();
 $card->load(["id" => "example_id"]);
 
 // $card->dataGet() now returns the loaded card data

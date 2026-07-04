@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:card():list() / client:card():load({ id = ... })
-function TarotCardMeaningsSDK:card(data)
+-- Idiomatic facade: client:Card():list() / client:Card():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TarotCardMeaningsSDK:Card(data)
   local EntityMod = require("entity.card_entity")
   if data == nil then
     if self._card == nil then
@@ -253,12 +254,6 @@ function TarotCardMeaningsSDK:card(data)
     end
     return self._card
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:card() instead.
-function TarotCardMeaningsSDK:Card(data)
-  local EntityMod = require("entity.card_entity")
   return EntityMod.new(self, data)
 end
 

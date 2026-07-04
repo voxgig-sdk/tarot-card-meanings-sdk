@@ -204,14 +204,7 @@ class TarotCardMeaningsSDK {
 
 
 
-  _card?: CardEntity
-
-  // Idiomatic facade: `client.card.list()` / `client.card.load({ id })`.
-  get card(): CardEntity {
-    return (this._card ??= new CardEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.card` instead. */
+  // Entity access: `client.Card().list()` / `client.Card().load({ id })`.
   Card(data?: any) {
     const self = this
     return new CardEntity(self,data)

@@ -31,24 +31,28 @@ from tarotcardmeanings_sdk import TarotCardMeaningsSDK
 client = TarotCardMeaningsSDK()
 ```
 
-### 2. List cards
+### 2. List card records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.card.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cards = client.Card().list({})
+    for card in cards:
+        print(card)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a card
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.card.load({"id": "example_id"})
-    print(result)
+    card = client.Card().load({"id": "example_id"})
+    print(card)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = TarotCardMeaningsSDK.test()
 
-result = client.card.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+card = client.Card().load({"id": "test01"})
+# card contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -237,7 +242,7 @@ API path: `/api/v1/cards`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `card = client.Card()`
 
 #### Operations
 
@@ -261,14 +266,14 @@ Create an instance: `const card = client.card`
 
 #### Example: Load
 
-```ts
-const card = await client.card.load({ id: 'card_id' })
+```python
+card = client.Card().load({"id": "card_id"})
 ```
 
 #### Example: List
 
-```ts
-const cards = await client.card.list()
+```python
+cards = client.Card().list({})
 ```
 
 
@@ -342,7 +347,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-card = client.card
+card = client.Card()
 card.load({"id": "example_id"})
 
 # card.data_get() now returns the loaded card data

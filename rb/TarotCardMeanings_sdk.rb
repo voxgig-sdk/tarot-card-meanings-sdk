@@ -208,13 +208,7 @@ class TarotCardMeaningsSDK
   end
 
 
-  # Idiomatic facade: client.card.list / client.card.load({ "id" => ... })
-  def card
-    require_relative 'entity/card_entity'
-    @card ||= CardEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.card instead.
+  # Canonical facade: client.Card.list / client.Card.load({ "id" => ... })
   def Card(data = nil)
     require_relative 'entity/card_entity'
     CardEntity.new(self, data)

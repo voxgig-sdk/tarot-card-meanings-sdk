@@ -220,25 +220,15 @@ class TarotCardMeaningsSDK:
         }
 
 
-    @property
-    def card(self):
-        """Idiomatic facade: client.card.list() / client.card.load({"id": ...})."""
-        from entity.card_entity import CardEntity
-        cached = getattr(self, "_card", None)
-        if cached is None:
-            cached = CardEntity(self, None)
-            self._card = cached
-        return cached
-
-    def Card(self, data=None):
-        # Deprecated: use client.card instead.
+    def Card(self, data=None) -> "CardEntity":
+        """Entity factory: client.Card().list({}) / client.Card().load({"id": ...})."""
         from entity.card_entity import CardEntity
         return CardEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "TarotCardMeaningsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class TarotCardMeaningsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.card_entity import CardEntity

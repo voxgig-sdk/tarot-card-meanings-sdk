@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CardEntity
 
 ```lua
-local card = client:card(nil)
+local card = client:Card(nil)
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ local card = client:card(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:card():list()
+local results, err = client:Card():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -114,7 +114,7 @@ local results, err = client:card():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:card():load({ id = "card_id" })
+local result, err = client:Card():load({ id = "card_id" })
 ```
 
 ### Common Methods
