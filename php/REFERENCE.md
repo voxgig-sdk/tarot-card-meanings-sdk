@@ -8,7 +8,7 @@ Complete API reference for the TarotCardMeanings PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/tarot-card-meanings_sdk.php';
+require_once __DIR__ . '/tarotcardmeanings_sdk.php';
 
 $client = new TarotCardMeaningsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = TarotCardMeaningsSDK::test();
 
 Create a new `CardEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): TarotCardMeaningsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,23 +92,23 @@ $card = $client->Card();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | ``$STRING`` | Yes |  |
-| `desc` | ``$STRING`` | No |  |
-| `meaning_rev` | ``$STRING`` | No |  |
-| `meaning_up` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `name_short` | ``$STRING`` | Yes |  |
-| `suit` | ``$STRING`` | No |  |
-| `value` | ``$STRING`` | No |  |
+| `arcana` | `string` | Yes |  |
+| `desc` | `string` | No |  |
+| `meaning_rev` | `string` | No |  |
+| `meaning_up` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `name_short` | `string` | Yes |  |
+| `suit` | `string` | No |  |
+| `value` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Card()->list([]);
+$results = $client->Card()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -121,19 +121,19 @@ $result = $client->Card()->load(["id" => "card_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -142,7 +142,7 @@ Set the entity match criteria.
 Create a new `CardEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

@@ -8,7 +8,7 @@ Complete API reference for the TarotCardMeanings Python SDK.
 ### Constructor
 
 ```python
-from tarot-card-meanings_sdk import TarotCardMeaningsSDK
+from tarotcardmeanings_sdk import TarotCardMeaningsSDK
 
 client = TarotCardMeaningsSDK(options)
 ```
@@ -87,23 +87,23 @@ card = client.Card()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | ``$STRING`` | Yes |  |
-| `desc` | ``$STRING`` | No |  |
-| `meaning_rev` | ``$STRING`` | No |  |
-| `meaning_up` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `name_short` | ``$STRING`` | Yes |  |
-| `suit` | ``$STRING`` | No |  |
-| `value` | ``$STRING`` | No |  |
+| `arcana` | `str` | Yes |  |
+| `desc` | `str` | No |  |
+| `meaning_rev` | `str` | No |  |
+| `meaning_up` | `str` | No |  |
+| `name` | `str` | Yes |  |
+| `name_short` | `str` | Yes |  |
+| `suit` | `str` | No |  |
+| `value` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Card().list({})
+results = client.Card().list()
 for card in results:
     print(card)
 ```

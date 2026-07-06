@@ -20,6 +20,14 @@
 ---@field id string
 
 ---@class CardListMatch
+---@field arcana? string
+---@field desc? string
+---@field meaning_rev? string
+---@field meaning_up? string
+---@field name? string
+---@field name_short? string
+---@field suit? string
+---@field value? string
 
 local M = {}
 

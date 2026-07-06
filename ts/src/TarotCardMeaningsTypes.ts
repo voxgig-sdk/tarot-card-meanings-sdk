@@ -20,5 +20,14 @@ export interface CardLoadMatch {
   id: string
 }
 
-export type CardListMatch = Partial<Card>
+export interface CardListMatch {
+  arcana?: string
+  desc?: string
+  meaning_rev?: string
+  meaning_up?: string
+  name?: string
+  name_short?: string
+  suit?: string
+  value?: string
+}
 

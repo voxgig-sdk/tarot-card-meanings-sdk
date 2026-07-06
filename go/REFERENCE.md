@@ -97,14 +97,14 @@ card := client.Card(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | ``$STRING`` | Yes |  |
-| `desc` | ``$STRING`` | No |  |
-| `meaning_rev` | ``$STRING`` | No |  |
-| `meaning_up` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `name_short` | ``$STRING`` | Yes |  |
-| `suit` | ``$STRING`` | No |  |
-| `value` | ``$STRING`` | No |  |
+| `arcana` | `string` | Yes |  |
+| `desc` | `string` | No |  |
+| `meaning_rev` | `string` | No |  |
+| `meaning_up` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `name_short` | `string` | Yes |  |
+| `suit` | `string` | No |  |
+| `value` | `string` | No |  |
 
 ### Operations
 

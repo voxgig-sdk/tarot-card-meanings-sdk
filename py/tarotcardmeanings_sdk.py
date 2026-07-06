@@ -221,7 +221,7 @@ class TarotCardMeaningsSDK:
 
 
     def Card(self, data=None) -> "CardEntity":
-        """Entity factory: client.Card().list({}) / client.Card().load({"id": ...})."""
+        """Entity factory: client.Card().list() / client.Card().load({"id": ...})."""
         from entity.card_entity import CardEntity
         return CardEntity(self, data)
 

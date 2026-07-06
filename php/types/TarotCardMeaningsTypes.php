@@ -31,7 +31,7 @@ class CardLoadMatch
     public string $id;
 }
 
-/** Match filter for Card#list (any subset of Card fields). */
+/** Request payload for Card#list. */
 class CardListMatch
 {
     public ?string $arcana = null;

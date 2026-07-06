@@ -25,8 +25,7 @@ type CardLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// CardListMatch mirrors the card fields as an all-optional match
-// filter (Go analog of Partial<Card>).
+// CardListMatch is the typed request payload for Card.ListTyped.
 type CardListMatch struct {
 	Arcana *string `json:"arcana,omitempty"`
 	Desc *string `json:"desc,omitempty"`

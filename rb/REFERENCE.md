@@ -8,7 +8,7 @@ Complete API reference for the TarotCardMeanings Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'tarot-card-meanings_sdk'
+require_relative 'TarotCardMeanings_sdk'
 
 client = TarotCardMeaningsSDK.new(options)
 ```
@@ -93,23 +93,23 @@ card = client.Card
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | ``$STRING`` | Yes |  |
-| `desc` | ``$STRING`` | No |  |
-| `meaning_rev` | ``$STRING`` | No |  |
-| `meaning_up` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `name_short` | ``$STRING`` | Yes |  |
-| `suit` | ``$STRING`` | No |  |
-| `value` | ``$STRING`` | No |  |
+| `arcana` | `String` | Yes |  |
+| `desc` | `String` | No |  |
+| `meaning_rev` | `String` | No |  |
+| `meaning_up` | `String` | No |  |
+| `name` | `String` | Yes |  |
+| `name_short` | `String` | Yes |  |
+| `suit` | `String` | No |  |
+| `value` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Card.list(nil)
+results = client.Card.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

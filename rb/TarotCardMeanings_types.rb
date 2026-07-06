@@ -54,7 +54,7 @@ CardLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Card#list (any subset of Card fields).
+# Request payload for Card#list.
 #
 # @!attribute [rw] arcana
 #   @return [String, nil]
