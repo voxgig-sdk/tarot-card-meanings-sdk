@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- TarotCardMeanings SDK exists test
 
 local sdk = require("tarot-card-meanings_sdk")
 
