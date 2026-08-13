@@ -16,11 +16,11 @@
 import pytest
 
 from tarotcardmeanings_sdk import TarotCardMeaningsSDK
-from core.error import TarotCardMeaningsError
-from core.result import TarotCardMeaningsResult
-from core.response import TarotCardMeaningsResponse
-from core.spec import TarotCardMeaningsSpec
-from feature.base_feature import TarotCardMeaningsBaseFeature
+from tarotcardmeanings_sdk.core.error import TarotCardMeaningsError
+from tarotcardmeanings_sdk.core.result import TarotCardMeaningsResult
+from tarotcardmeanings_sdk.core.response import TarotCardMeaningsResponse
+from tarotcardmeanings_sdk.core.spec import TarotCardMeaningsSpec
+from tarotcardmeanings_sdk.feature.base_feature import TarotCardMeaningsBaseFeature
 
 
 def _client():

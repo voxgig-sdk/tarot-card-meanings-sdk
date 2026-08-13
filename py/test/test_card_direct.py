@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from tarotcardmeanings_sdk.utility.voxgig_struct import voxgig_struct as vs
 from tarotcardmeanings_sdk import TarotCardMeaningsSDK
-from core import helpers
+from tarotcardmeanings_sdk.core import helpers
 from test import runner
 
 
@@ -102,11 +102,11 @@ def _card_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "TAROTCARDMEANINGS_TEST_CARD_ENTID": {},
-        "TAROTCARDMEANINGS_TEST_LIVE": "FALSE",
+        "TAROT_CARD_MEANINGS_TEST_CARD_ENTID": {},
+        "TAROT_CARD_MEANINGS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("TAROTCARDMEANINGS_TEST_LIVE") == "TRUE"
+    live = env.get("TAROT_CARD_MEANINGS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

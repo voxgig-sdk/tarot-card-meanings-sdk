@@ -243,10 +243,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `arcana` |  |
 | `desc` |  |
-| `meaning_rev` |  |
-| `meaning_up` |  |
+| `meaningRev` |  |
+| `meaningUp` |  |
 | `name` |  |
-| `name_short` |  |
+| `nameShort` |  |
 | `suit` |  |
 | `value` |  |
 
@@ -276,10 +276,10 @@ Create an instance: `local card = client:Card(nil)`
 | --- | --- | --- |
 | `arcana` | `string` |  |
 | `desc` | `string` |  |
-| `meaning_rev` | `string` |  |
-| `meaning_up` | `string` |  |
+| `meaningRev` | `string` |  |
+| `meaningUp` | `string` |  |
 | `name` | `string` |  |
-| `name_short` | `string` |  |
+| `nameShort` | `string` |  |
 | `suit` | `string` |  |
 | `value` | `string` |  |
 

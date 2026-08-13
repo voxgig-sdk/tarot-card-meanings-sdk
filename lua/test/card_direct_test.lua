@@ -113,11 +113,11 @@ function card_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["TAROTCARDMEANINGS_TEST_CARD_ENTID"] = {},
-    ["TAROTCARDMEANINGS_TEST_LIVE"] = "FALSE",
+    ["TAROT_CARD_MEANINGS_TEST_CARD_ENTID"] = {},
+    ["TAROT_CARD_MEANINGS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["TAROTCARDMEANINGS_TEST_LIVE"] == "TRUE"
+  local live = env["TAROT_CARD_MEANINGS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

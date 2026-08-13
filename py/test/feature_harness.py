@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import TarotCardMeaningsControl
-from core.error import TarotCardMeaningsError
-from core.result import TarotCardMeaningsResult
-from core.spec import TarotCardMeaningsSpec
+from tarotcardmeanings_sdk.config import make_config
+from tarotcardmeanings_sdk.features import _make_feature
+from tarotcardmeanings_sdk.core.control import TarotCardMeaningsControl
+from tarotcardmeanings_sdk.core.error import TarotCardMeaningsError
+from tarotcardmeanings_sdk.core.result import TarotCardMeaningsResult
+from tarotcardmeanings_sdk.core.spec import TarotCardMeaningsSpec
 
 
 # True when this SDK was generated with the named feature.

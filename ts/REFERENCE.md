@@ -118,12 +118,32 @@ const card = client.Card()
 | --- | --- | --- | --- |
 | `arcana` | `string` | Yes |  |
 | `desc` | `string` | No |  |
-| `meaning_rev` | `string` | No |  |
-| `meaning_up` | `string` | No |  |
+| `meaningRev` | `string` | No |  |
+| `meaningUp` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `name_short` | `string` | Yes |  |
+| `nameShort` | `string` | Yes |  |
 | `suit` | `string` | No |  |
 | `value` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `random` | `/api/v1/cards/random` | `client.Card().load({ $action: 'random', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Card record — check the API definition for its shape.
+
+```ts
+const result = await client.Card().load({
+  $action: 'random',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

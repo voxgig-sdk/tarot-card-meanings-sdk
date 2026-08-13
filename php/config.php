@@ -46,14 +46,14 @@ class TarotCardMeaningsConfig
             ],
             [
               'active' => true,
-              'name' => 'meaning_rev',
+              'name' => 'meaningRev',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
             ],
             [
               'active' => true,
-              'name' => 'meaning_up',
+              'name' => 'meaningUp',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 3,
@@ -67,7 +67,7 @@ class TarotCardMeaningsConfig
             ],
             [
               'active' => true,
-              'name' => 'name_short',
+              'name' => 'nameShort',
               'req' => true,
               'type' => '`$STRING`',
               'index$' => 5,
@@ -115,6 +115,7 @@ class TarotCardMeaningsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards',
                   'parts' => [
@@ -130,7 +131,7 @@ class TarotCardMeaningsConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.cards`',
                   ],
                   'index$' => 0,
                 ],
@@ -157,6 +158,7 @@ class TarotCardMeaningsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards/{nameShort}',
                   'parts' => [
@@ -196,6 +198,7 @@ class TarotCardMeaningsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards/random',
                   'parts' => [

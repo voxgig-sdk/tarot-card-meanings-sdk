@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Card record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Card record (throws on error).
     $card = $client->Card()->load(["id" => "example_id"]);
     print_r($card);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = TarotCardMeaningsSDK::test([
     "entity" => ["card" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $card = $client->Card()->list();
 print_r($card);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -264,10 +265,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `arcana` |  |
 | `desc` |  |
-| `meaning_rev` |  |
-| `meaning_up` |  |
+| `meaningRev` |  |
+| `meaningUp` |  |
 | `name` |  |
-| `name_short` |  |
+| `nameShort` |  |
 | `suit` |  |
 | `value` |  |
 
@@ -297,17 +298,17 @@ Create an instance: `$card = $client->Card();`
 | --- | --- | --- |
 | `arcana` | `string` |  |
 | `desc` | `string` |  |
-| `meaning_rev` | `string` |  |
-| `meaning_up` | `string` |  |
+| `meaningRev` | `string` |  |
+| `meaningUp` | `string` |  |
 | `name` | `string` |  |
-| `name_short` | `string` |  |
+| `nameShort` | `string` |  |
 | `suit` | `string` |  |
 | `value` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Card record (throws on error).
+// load() returns the ENTITY — call data_get() for the Card record (throws on error).
 $card = $client->Card()->load(["id" => "card_id"]);
 ```
 

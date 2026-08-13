@@ -8,25 +8,31 @@
 export interface Card {
   arcana: string
   desc?: string
-  meaning_rev?: string
-  meaning_up?: string
+  meaningRev?: string
+  meaningUp?: string
   name: string
-  name_short: string
+  nameShort: string
   suit?: string
   value?: string
 }
 
 export interface CardLoadMatch {
   id: string
+
+  // Selects a custom action instead of the plain load:
+  //   'random'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface CardListMatch {
   arcana?: string
   desc?: string
-  meaning_rev?: string
-  meaning_up?: string
+  meaningRev?: string
+  meaningUp?: string
   name?: string
-  name_short?: string
+  nameShort?: string
   suit?: string
   value?: string
 }

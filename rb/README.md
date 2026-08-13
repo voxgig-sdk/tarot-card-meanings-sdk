@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Card record (raises on error).
+  # load returns the ENTITY — call data_get for the Card record (raises on error).
   card = client.Card.load({ "id" => "example_id" })
   puts card
 rescue => err
@@ -134,7 +134,8 @@ client = TarotCardMeaningsSDK.test({
   "entity" => { "card" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 card = client.Card.list()
 puts card
 ```
@@ -254,10 +255,10 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `arcana` |  |
 | `desc` |  |
-| `meaning_rev` |  |
-| `meaning_up` |  |
+| `meaningRev` |  |
+| `meaningUp` |  |
 | `name` |  |
-| `name_short` |  |
+| `nameShort` |  |
 | `suit` |  |
 | `value` |  |
 
@@ -287,17 +288,17 @@ Create an instance: `card = client.Card`
 | --- | --- | --- |
 | `arcana` | `String` |  |
 | `desc` | `String` |  |
-| `meaning_rev` | `String` |  |
-| `meaning_up` | `String` |  |
+| `meaningRev` | `String` |  |
+| `meaningUp` | `String` |  |
 | `name` | `String` |  |
-| `name_short` | `String` |  |
+| `nameShort` | `String` |  |
 | `suit` | `String` |  |
 | `value` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Card record (raises on error).
+# load returns the ENTITY — call data_get for the Card record (raises on error).
 card = client.Card.load({ "id" => "card_id" })
 ```
 

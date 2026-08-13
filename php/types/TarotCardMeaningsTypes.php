@@ -17,10 +17,10 @@ class Card
 {
     public string $arcana;
     public ?string $desc = null;
-    public ?string $meaning_rev = null;
-    public ?string $meaning_up = null;
+    public ?string $meaningRev = null;
+    public ?string $meaningUp = null;
     public string $name;
-    public string $name_short;
+    public string $nameShort;
     public ?string $suit = null;
     public ?string $value = null;
 }
@@ -36,10 +36,10 @@ class CardListMatch
 {
     public ?string $arcana = null;
     public ?string $desc = null;
-    public ?string $meaning_rev = null;
-    public ?string $meaning_up = null;
+    public ?string $meaningRev = null;
+    public ?string $meaningUp = null;
     public ?string $name = null;
-    public ?string $name_short = null;
+    public ?string $nameShort = null;
     public ?string $suit = null;
     public ?string $value = null;
 }

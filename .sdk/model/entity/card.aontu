@@ -16,12 +16,12 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
-      name: "meaning_rev"
+      name: "meaningRev"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "meaning_up"
+      name: "meaningUp"
       req: false
       type: "`$STRING`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
-      name: "name_short"
+      name: "nameShort"
       req: true
       type: "`$STRING`"
     }
@@ -86,7 +86,7 @@ main: kit: entity: card: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.cards`"
           }
         }
       ]

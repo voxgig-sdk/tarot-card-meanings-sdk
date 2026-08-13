@@ -8,6 +8,7 @@ guide: {
   entity: card: {
     path: "/api/v1/cards": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.cards`")|top
     }
     path: "/api/v1/cards/random": {
       action: "random": {}

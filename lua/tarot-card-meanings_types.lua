@@ -9,10 +9,10 @@
 ---@class Card
 ---@field arcana string
 ---@field desc? string
----@field meaning_rev? string
----@field meaning_up? string
+---@field meaningRev? string
+---@field meaningUp? string
 ---@field name string
----@field name_short string
+---@field nameShort string
 ---@field suit? string
 ---@field value? string
 
@@ -22,10 +22,10 @@
 ---@class CardListMatch
 ---@field arcana? string
 ---@field desc? string
----@field meaning_rev? string
----@field meaning_up? string
+---@field meaningRev? string
+---@field meaningUp? string
 ---@field name? string
----@field name_short? string
+---@field nameShort? string
 ---@field suit? string
 ---@field value? string
 

@@ -119,11 +119,11 @@ function card_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "TAROTCARDMEANINGS_TEST_CARD_ENTID" => [],
-        "TAROTCARDMEANINGS_TEST_LIVE" => "FALSE",
+        "TAROT_CARD_MEANINGS_TEST_CARD_ENTID" => [],
+        "TAROT_CARD_MEANINGS_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["TAROTCARDMEANINGS_TEST_LIVE"] === "TRUE";
+    $live = $env["TAROT_CARD_MEANINGS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

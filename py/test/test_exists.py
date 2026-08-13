@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# TarotCardMeanings SDK exists test
 
 import pytest
 from tarotcardmeanings_sdk import TarotCardMeaningsSDK

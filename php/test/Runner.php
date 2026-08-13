@@ -43,8 +43,8 @@ class TarotCardMeaningsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('TAROTCARDMEANINGS_TEST_LIVE');
-        $override = self::getenv('TAROTCARDMEANINGS_TEST_OVERRIDE');
+        $live = self::getenv('TAROT_CARD_MEANINGS_TEST_LIVE');
+        $override = self::getenv('TAROT_CARD_MEANINGS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class TarotCardMeaningsTestRunner
             }
         }
 
-        $explain = self::getenv('TAROTCARDMEANINGS_TEST_EXPLAIN');
+        $explain = self::getenv('TAROT_CARD_MEANINGS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['TAROTCARDMEANINGS_TEST_EXPLAIN'] = $explain;
+            $m['TAROT_CARD_MEANINGS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

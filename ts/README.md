@@ -35,7 +35,9 @@ const client = new TarotCardMeaningsSDK()
 
 ### 2. List card records
 
-`list()` resolves to an array of Card objects — iterate it directly:
+`list()` resolves to an array of Card ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cards = await client.Card().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = TarotCardMeaningsSDK.test()
 
 const card = await client.Card().list()
-// card is a bare entity populated with mock response data
+// card is the entity, populated with mock response data
+// — call card.data() for the record itself
 console.log(card)
 ```
 
@@ -301,10 +304,10 @@ The `prepare()` method returns:
 | --- | --- |
 | `arcana` |  |
 | `desc` |  |
-| `meaning_rev` |  |
-| `meaning_up` |  |
+| `meaningRev` |  |
+| `meaningUp` |  |
 | `name` |  |
-| `name_short` |  |
+| `nameShort` |  |
 | `suit` |  |
 | `value` |  |
 
@@ -334,10 +337,10 @@ Create an instance: `const card = client.Card()`
 | --- | --- | --- |
 | `arcana` | `string` |  |
 | `desc` | `string` |  |
-| `meaning_rev` | `string` |  |
-| `meaning_up` | `string` |  |
+| `meaningRev` | `string` |  |
+| `meaningUp` | `string` |  |
 | `name` | `string` |  |
-| `name_short` | `string` |  |
+| `nameShort` | `string` |  |
 | `suit` | `string` |  |
 | `value` | `string` |  |
 

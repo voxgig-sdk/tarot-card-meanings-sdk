@@ -16,16 +16,16 @@
 # @!attribute [rw] desc
 #   @return [String, nil]
 #
-# @!attribute [rw] meaning_rev
+# @!attribute [rw] meaningRev
 #   @return [String, nil]
 #
-# @!attribute [rw] meaning_up
+# @!attribute [rw] meaningUp
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String]
 #
-# @!attribute [rw] name_short
+# @!attribute [rw] nameShort
 #   @return [String]
 #
 # @!attribute [rw] suit
@@ -36,10 +36,10 @@
 Card = Struct.new(
   :arcana,
   :desc,
-  :meaning_rev,
-  :meaning_up,
+  :meaningRev,
+  :meaningUp,
   :name,
-  :name_short,
+  :nameShort,
   :suit,
   :value,
   keyword_init: true
@@ -62,16 +62,16 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] desc
 #   @return [String, nil]
 #
-# @!attribute [rw] meaning_rev
+# @!attribute [rw] meaningRev
 #   @return [String, nil]
 #
-# @!attribute [rw] meaning_up
+# @!attribute [rw] meaningUp
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_short
+# @!attribute [rw] nameShort
 #   @return [String, nil]
 #
 # @!attribute [rw] suit
@@ -82,10 +82,10 @@ CardLoadMatch = Struct.new(
 CardListMatch = Struct.new(
   :arcana,
   :desc,
-  :meaning_rev,
-  :meaning_up,
+  :meaningRev,
+  :meaningUp,
   :name,
-  :name_short,
+  :nameShort,
   :suit,
   :value,
   keyword_init: true

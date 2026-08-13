@@ -100,10 +100,10 @@ fmt.Println(card.GetName()) // "card"
 | --- | --- | --- | --- |
 | `arcana` | `string` | Yes |  |
 | `desc` | `string` | No |  |
-| `meaning_rev` | `string` | No |  |
-| `meaning_up` | `string` | No |  |
+| `meaningRev` | `string` | No |  |
+| `meaningUp` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `name_short` | `string` | Yes |  |
+| `nameShort` | `string` | Yes |  |
 | `suit` | `string` | No |  |
 | `value` | `string` | No |  |
 

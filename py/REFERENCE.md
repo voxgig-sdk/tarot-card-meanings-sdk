@@ -89,10 +89,10 @@ card = client.Card()
 | --- | --- | --- | --- |
 | `arcana` | `str` | Yes |  |
 | `desc` | `str` | No |  |
-| `meaning_rev` | `str` | No |  |
-| `meaning_up` | `str` | No |  |
+| `meaningRev` | `str` | No |  |
+| `meaningUp` | `str` | No |  |
 | `name` | `str` | Yes |  |
-| `name_short` | `str` | Yes |  |
+| `nameShort` | `str` | Yes |  |
 | `suit` | `str` | No |  |
 | `value` | `str` | No |  |
 
