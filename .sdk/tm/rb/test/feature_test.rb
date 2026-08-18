@@ -15,7 +15,7 @@ require_relative "../TarotCardMeanings_sdk"
 module TarotCardMeaningsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = TarotCardMeaningsConfig.make_config["feature"]
+    f = TarotCardMeaningsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

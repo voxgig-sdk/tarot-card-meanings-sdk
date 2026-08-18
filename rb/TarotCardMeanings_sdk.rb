@@ -28,7 +28,7 @@ class TarotCardMeaningsSDK
     utility = TarotCardMeaningsUtility.new
     @_utility = utility
 
-    config = TarotCardMeaningsConfig.make_config
+    config = TarotCardMeaningsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

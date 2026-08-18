@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from tarotcardmeanings_sdk.config import make_config
+from tarotcardmeanings_sdk.config import shared_config
 from tarotcardmeanings_sdk.features import _make_feature
 from tarotcardmeanings_sdk.core.control import TarotCardMeaningsControl
 from tarotcardmeanings_sdk.core.error import TarotCardMeaningsError
@@ -24,7 +24,7 @@ from tarotcardmeanings_sdk.core.spec import TarotCardMeaningsSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

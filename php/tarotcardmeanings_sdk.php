@@ -40,7 +40,7 @@ class TarotCardMeaningsSDK
         $utility = new TarotCardMeaningsUtility();
         $this->_utility = $utility;
 
-        $config = TarotCardMeaningsConfig::make_config();
+        $config = TarotCardMeaningsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

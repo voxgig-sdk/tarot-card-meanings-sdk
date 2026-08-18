@@ -23,6 +23,7 @@ build = {
   modules = {
     ["tarot-card-meanings_sdk"] = "tarot-card-meanings_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
