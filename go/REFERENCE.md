@@ -98,14 +98,14 @@ fmt.Println(card.GetName()) // "card"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | `string` | Yes |  |
-| `desc` | `string` | No |  |
-| `meaningRev` | `string` | No |  |
-| `meaningUp` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nameShort` | `string` | Yes |  |
-| `suit` | `string` | No |  |
-| `value` | `string` | No |  |
+| `arcana` | `string` | Yes | Type of arcana |
+| `desc` | `string` | No | Description of the card imagery and symbolism |
+| `meaningRev` | `string` | No | Divinatory meaning when card is reversed |
+| `meaningUp` | `string` | No | Divinatory meaning when card is upright |
+| `name` | `string` | Yes | Full name of the tarot card |
+| `nameShort` | `string` | Yes | Short identifier for the card |
+| `suit` | `string` | No | Suit of the card (for Minor Arcana) |
+| `value` | `string` | No | Numeric value or rank of the card |
 
 ### Operations
 

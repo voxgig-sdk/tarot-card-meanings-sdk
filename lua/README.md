@@ -241,14 +241,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `arcana` |  |
-| `desc` |  |
-| `meaningRev` |  |
-| `meaningUp` |  |
-| `name` |  |
-| `nameShort` |  |
-| `suit` |  |
-| `value` |  |
+| `arcana` | Type of arcana |
+| `desc` | Description of the card imagery and symbolism |
+| `meaningRev` | Divinatory meaning when card is reversed |
+| `meaningUp` | Divinatory meaning when card is upright |
+| `name` | Full name of the tarot card |
+| `nameShort` | Short identifier for the card |
+| `suit` | Suit of the card (for Minor Arcana) |
+| `value` | Numeric value or rank of the card |
 
 Operations: List, Load.
 
@@ -274,14 +274,14 @@ Create an instance: `local card = client:Card(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arcana` | `string` |  |
-| `desc` | `string` |  |
-| `meaningRev` | `string` |  |
-| `meaningUp` | `string` |  |
-| `name` | `string` |  |
-| `nameShort` | `string` |  |
-| `suit` | `string` |  |
-| `value` | `string` |  |
+| `arcana` | `string` | Type of arcana |
+| `desc` | `string` | Description of the card imagery and symbolism |
+| `meaningRev` | `string` | Divinatory meaning when card is reversed |
+| `meaningUp` | `string` | Divinatory meaning when card is upright |
+| `name` | `string` | Full name of the tarot card |
+| `nameShort` | `string` | Short identifier for the card |
+| `suit` | `string` | Suit of the card (for Minor Arcana) |
+| `value` | `string` | Numeric value or rank of the card |
 
 #### Example: Load
 

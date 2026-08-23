@@ -36,48 +36,56 @@
               "active": true,
               "name": "arcana",
               "req": true,
+              "short": "Type of arcana",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "desc",
               "req": false,
+              "short": "Description of the card imagery and symbolism",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "meaningRev",
               "req": false,
+              "short": "Divinatory meaning when card is reversed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "meaningUp",
               "req": false,
+              "short": "Divinatory meaning when card is upright",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Full name of the tarot card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameShort",
               "req": true,
+              "short": "Short identifier for the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "suit",
               "req": false,
+              "short": "Suit of the card (for Minor Arcana)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "value",
               "req": false,
+              "short": "Numeric value or rank of the card",
               "type": "`$STRING`"
             }
           ],

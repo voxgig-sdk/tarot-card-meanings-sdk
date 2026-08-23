@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "TarotCardMeanings",
+			"slug": "tarot-card-meanings",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,36 +37,44 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "arcana",
 						"req": true,
+						"short": "Type of arcana",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "desc",
+						"short": "Description of the card imagery and symbolism",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "meaningRev",
+						"short": "Divinatory meaning when card is reversed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "meaningUp",
+						"short": "Divinatory meaning when card is upright",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Full name of the tarot card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameShort",
 						"req": true,
+						"short": "Short identifier for the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "suit",
+						"short": "Suit of the card (for Minor Arcana)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "value",
+						"short": "Numeric value or rank of the card",
 						"type": "`$STRING`",
 					},
 				},

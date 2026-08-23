@@ -87,14 +87,14 @@ card = client.Card()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | `str` | Yes |  |
-| `desc` | `str` | No |  |
-| `meaningRev` | `str` | No |  |
-| `meaningUp` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `nameShort` | `str` | Yes |  |
-| `suit` | `str` | No |  |
-| `value` | `str` | No |  |
+| `arcana` | `str` | Yes | Type of arcana |
+| `desc` | `str` | No | Description of the card imagery and symbolism |
+| `meaningRev` | `str` | No | Divinatory meaning when card is reversed |
+| `meaningUp` | `str` | No | Divinatory meaning when card is upright |
+| `name` | `str` | Yes | Full name of the tarot card |
+| `nameShort` | `str` | Yes | Short identifier for the card |
+| `suit` | `str` | No | Suit of the card (for Minor Arcana) |
+| `value` | `str` | No | Numeric value or rank of the card |
 
 ### Operations
 

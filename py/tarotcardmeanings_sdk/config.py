@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "TarotCardMeanings",
+            "slug": "tarot-card-meanings",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,36 +54,44 @@ def make_config():
           {
             "name": "arcana",
             "req": True,
+            "short": "Type of arcana",
             "type": "`$STRING`",
           },
           {
             "name": "desc",
+            "short": "Description of the card imagery and symbolism",
             "type": "`$STRING`",
           },
           {
             "name": "meaningRev",
+            "short": "Divinatory meaning when card is reversed",
             "type": "`$STRING`",
           },
           {
             "name": "meaningUp",
+            "short": "Divinatory meaning when card is upright",
             "type": "`$STRING`",
           },
           {
             "name": "name",
             "req": True,
+            "short": "Full name of the tarot card",
             "type": "`$STRING`",
           },
           {
             "name": "nameShort",
             "req": True,
+            "short": "Short identifier for the card",
             "type": "`$STRING`",
           },
           {
             "name": "suit",
+            "short": "Suit of the card (for Minor Arcana)",
             "type": "`$STRING`",
           },
           {
             "name": "value",
+            "short": "Numeric value or rank of the card",
             "type": "`$STRING`",
           },
         ],

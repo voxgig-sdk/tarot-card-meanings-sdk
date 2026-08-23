@@ -256,14 +256,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `arcana` |  |
-| `desc` |  |
-| `meaningRev` |  |
-| `meaningUp` |  |
-| `name` |  |
-| `nameShort` |  |
-| `suit` |  |
-| `value` |  |
+| `arcana` | Type of arcana |
+| `desc` | Description of the card imagery and symbolism |
+| `meaningRev` | Divinatory meaning when card is reversed |
+| `meaningUp` | Divinatory meaning when card is upright |
+| `name` | Full name of the tarot card |
+| `nameShort` | Short identifier for the card |
+| `suit` | Suit of the card (for Minor Arcana) |
+| `value` | Numeric value or rank of the card |
 
 Operations: List, Load.
 
@@ -289,14 +289,14 @@ Create an instance: `card = client.Card()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arcana` | `str` |  |
-| `desc` | `str` |  |
-| `meaningRev` | `str` |  |
-| `meaningUp` | `str` |  |
-| `name` | `str` |  |
-| `nameShort` | `str` |  |
-| `suit` | `str` |  |
-| `value` | `str` |  |
+| `arcana` | `str` | Type of arcana |
+| `desc` | `str` | Description of the card imagery and symbolism |
+| `meaningRev` | `str` | Divinatory meaning when card is reversed |
+| `meaningUp` | `str` | Divinatory meaning when card is upright |
+| `name` | `str` | Full name of the tarot card |
+| `nameShort` | `str` | Short identifier for the card |
+| `suit` | `str` | Suit of the card (for Minor Arcana) |
+| `value` | `str` | Numeric value or rank of the card |
 
 #### Example: Load
 

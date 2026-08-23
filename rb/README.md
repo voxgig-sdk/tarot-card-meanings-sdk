@@ -253,14 +253,14 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `arcana` |  |
-| `desc` |  |
-| `meaningRev` |  |
-| `meaningUp` |  |
-| `name` |  |
-| `nameShort` |  |
-| `suit` |  |
-| `value` |  |
+| `arcana` | Type of arcana |
+| `desc` | Description of the card imagery and symbolism |
+| `meaningRev` | Divinatory meaning when card is reversed |
+| `meaningUp` | Divinatory meaning when card is upright |
+| `name` | Full name of the tarot card |
+| `nameShort` | Short identifier for the card |
+| `suit` | Suit of the card (for Minor Arcana) |
+| `value` | Numeric value or rank of the card |
 
 Operations: List, Load.
 
@@ -286,14 +286,14 @@ Create an instance: `card = client.Card`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arcana` | `String` |  |
-| `desc` | `String` |  |
-| `meaningRev` | `String` |  |
-| `meaningUp` | `String` |  |
-| `name` | `String` |  |
-| `nameShort` | `String` |  |
-| `suit` | `String` |  |
-| `value` | `String` |  |
+| `arcana` | `String` | Type of arcana |
+| `desc` | `String` | Description of the card imagery and symbolism |
+| `meaningRev` | `String` | Divinatory meaning when card is reversed |
+| `meaningUp` | `String` | Divinatory meaning when card is upright |
+| `name` | `String` | Full name of the tarot card |
+| `nameShort` | `String` | Short identifier for the card |
+| `suit` | `String` | Suit of the card (for Minor Arcana) |
+| `value` | `String` | Numeric value or rank of the card |
 
 #### Example: Load
 

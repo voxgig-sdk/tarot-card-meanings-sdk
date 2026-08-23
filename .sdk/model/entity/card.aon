@@ -8,41 +8,49 @@ main: kit: entity: card: {
     {
       name: "arcana"
       req: true
+      short: "Type of arcana"
       type: "`$STRING`"
     }
     {
       name: "desc"
       req: false
+      short: "Description of the card imagery and symbolism"
       type: "`$STRING`"
     }
     {
       name: "meaningRev"
       req: false
+      short: "Divinatory meaning when card is reversed"
       type: "`$STRING`"
     }
     {
       name: "meaningUp"
       req: false
+      short: "Divinatory meaning when card is upright"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: true
+      short: "Full name of the tarot card"
       type: "`$STRING`"
     }
     {
       name: "nameShort"
       req: true
+      short: "Short identifier for the card"
       type: "`$STRING`"
     }
     {
       name: "suit"
       req: false
+      short: "Suit of the card (for Minor Arcana)"
       type: "`$STRING`"
     }
     {
       name: "value"
       req: false
+      short: "Numeric value or rank of the card"
       type: "`$STRING`"
     }
   ]

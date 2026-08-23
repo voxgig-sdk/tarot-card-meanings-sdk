@@ -93,14 +93,14 @@ card = client.Card
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arcana` | `String` | Yes |  |
-| `desc` | `String` | No |  |
-| `meaningRev` | `String` | No |  |
-| `meaningUp` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `nameShort` | `String` | Yes |  |
-| `suit` | `String` | No |  |
-| `value` | `String` | No |  |
+| `arcana` | `String` | Yes | Type of arcana |
+| `desc` | `String` | No | Description of the card imagery and symbolism |
+| `meaningRev` | `String` | No | Divinatory meaning when card is reversed |
+| `meaningUp` | `String` | No | Divinatory meaning when card is upright |
+| `name` | `String` | Yes | Full name of the tarot card |
+| `nameShort` | `String` | Yes | Short identifier for the card |
+| `suit` | `String` | No | Suit of the card (for Minor Arcana) |
+| `value` | `String` | No | Numeric value or rank of the card |
 
 ### Operations
 
