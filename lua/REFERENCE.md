@@ -92,6 +92,7 @@ local card = client:Card(nil)
 | --- | --- | --- | --- |
 | `arcana` | `string` | Yes | Type of arcana |
 | `desc` | `string` | No | Description of the card imagery and symbolism |
+| `id` | `string` | No |  |
 | `meaningRev` | `string` | No | Divinatory meaning when card is reversed |
 | `meaningUp` | `string` | No | Divinatory meaning when card is upright |
 | `name` | `string` | Yes | Full name of the tarot card |

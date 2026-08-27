@@ -28,6 +28,7 @@ module TarotCardMeaningsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -51,6 +52,10 @@ module TarotCardMeaningsConfig
             {
               "name" => "desc",
               "short" => "Description of the card imagery and symbolism",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {

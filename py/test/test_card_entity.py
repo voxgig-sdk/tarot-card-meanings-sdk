@@ -88,9 +88,13 @@ class TestCardEntity:
         assert isinstance(card_ref01_list_result, list)
 
         # LOAD
-        card_ref01_match_dt0 = {}
+        card_ref01_match_dt0 = {
+            "id": card_ref01_data["id"],
+        }
         card_ref01_data_dt0_loaded = card_ref01_ent.load(card_ref01_match_dt0, None)
-        assert card_ref01_data_dt0_loaded is not None
+        card_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(card_ref01_data_dt0_loaded))
+        assert card_ref01_data_dt0_load_result is not None
+        assert card_ref01_data_dt0_load_result["id"] == card_ref01_data["id"]
 
 
 

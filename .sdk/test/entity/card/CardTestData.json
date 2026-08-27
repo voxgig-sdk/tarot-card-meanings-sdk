@@ -2,51 +2,51 @@
   "existing": {
     "card": {
       "CARD00": {
-        "arcana": "s50",
-        "desc": "s51",
-        "meaningRev": "s52",
-        "meaningUp": "s53",
-        "name": "s54",
-        "nameShort": "s55",
-        "suit": "s56",
-        "value": "s57",
-        "id": "CARD00"
+        "arcana": "s5a",
+        "desc": "s5b",
+        "id": "CARD00",
+        "meaningRev": "s5d",
+        "meaningUp": "s5e",
+        "name": "s5f",
+        "nameShort": "s60",
+        "suit": "s61",
+        "value": "s62"
       },
       "CARD01": {
-        "arcana": "sa0",
-        "desc": "sa1",
-        "meaningRev": "sa2",
-        "meaningUp": "sa3",
-        "name": "sa4",
-        "nameShort": "sa5",
-        "suit": "sa6",
-        "value": "sa7",
-        "id": "CARD01"
+        "arcana": "sb4",
+        "desc": "sb5",
+        "id": "CARD01",
+        "meaningRev": "sb7",
+        "meaningUp": "sb8",
+        "name": "sb9",
+        "nameShort": "sba",
+        "suit": "sbb",
+        "value": "sbc"
       },
       "CARD02": {
-        "arcana": "sf0",
-        "desc": "sf1",
-        "meaningRev": "sf2",
-        "meaningUp": "sf3",
-        "name": "sf4",
-        "nameShort": "sf5",
-        "suit": "sf6",
-        "value": "sf7",
-        "id": "CARD02"
+        "arcana": "s10e",
+        "desc": "s10f",
+        "id": "CARD02",
+        "meaningRev": "s111",
+        "meaningUp": "s112",
+        "name": "s113",
+        "nameShort": "s114",
+        "suit": "s115",
+        "value": "s116"
       }
     }
   },
   "new": {
     "card": {
       "card_ref01": {
-        "arcana": "s140",
-        "desc": "s141",
-        "meaningRev": "s142",
-        "meaningUp": "s143",
-        "name": "s144",
-        "nameShort": "s145",
-        "suit": "s146",
-        "value": "s147"
+        "arcana": "s168",
+        "desc": "s169",
+        "meaningRev": "s16b",
+        "meaningUp": "s16c",
+        "name": "s16d",
+        "nameShort": "s16e",
+        "suit": "s16f",
+        "value": "s170"
       }
     }
   }

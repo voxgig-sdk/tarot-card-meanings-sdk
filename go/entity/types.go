@@ -16,6 +16,7 @@ import (
 type Card struct {
 	Arcana string `json:"arcana"`
 	Desc *string `json:"desc,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MeaningRev *string `json:"meaningRev,omitempty"`
 	MeaningUp *string `json:"meaningUp,omitempty"`
 	Name string `json:"name"`
@@ -33,6 +34,7 @@ type CardLoadMatch struct {
 type CardListMatch struct {
 	Arcana *string `json:"arcana,omitempty"`
 	Desc *string `json:"desc,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MeaningRev *string `json:"meaningRev,omitempty"`
 	MeaningUp *string `json:"meaningUp,omitempty"`
 	Name *string `json:"name,omitempty"`

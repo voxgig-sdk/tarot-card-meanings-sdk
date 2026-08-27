@@ -24,6 +24,7 @@ class CardRequired(TypedDict):
 
 class Card(CardRequired, total=False):
     desc: str
+    id: str
     meaningRev: str
     meaningUp: str
     suit: str
@@ -37,6 +38,7 @@ class CardLoadMatch(TypedDict):
 class CardListMatch(TypedDict, total=False):
     arcana: str
     desc: str
+    id: str
     meaningRev: str
     meaningUp: str
     name: str

@@ -93,9 +93,13 @@ class CardEntityTest extends TestCase
         $this->assertIsArray($card_ref01_list_result);
 
         // LOAD
-        $card_ref01_match_dt0 = [];
+        $card_ref01_match_dt0 = [
+            "id" => $card_ref01_data["id"],
+        ];
         $card_ref01_data_dt0_loaded = $card_ref01_ent->load($card_ref01_match_dt0, null);
-        $this->assertNotNull($card_ref01_data_dt0_loaded);
+        $card_ref01_data_dt0_load_result = Helpers::to_map(is_object($card_ref01_data_dt0_loaded) && method_exists($card_ref01_data_dt0_loaded, 'data_get') ? $card_ref01_data_dt0_loaded->data_get() : $card_ref01_data_dt0_loaded);
+        $this->assertNotNull($card_ref01_data_dt0_load_result);
+        $this->assertEquals($card_ref01_data_dt0_load_result["id"], $card_ref01_data["id"]);
 
     }
 }

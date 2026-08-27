@@ -18,6 +18,11 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "meaningRev"
       req: false
       short: "Divinatory meaning when card is reversed"
@@ -54,6 +59,11 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "card"
   op: {

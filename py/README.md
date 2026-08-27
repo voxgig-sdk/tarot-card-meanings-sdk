@@ -258,6 +258,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `arcana` | Type of arcana |
 | `desc` | Description of the card imagery and symbolism |
+| `id` |  |
 | `meaningRev` | Divinatory meaning when card is reversed |
 | `meaningUp` | Divinatory meaning when card is upright |
 | `name` | Full name of the tarot card |
@@ -291,6 +292,7 @@ Create an instance: `card = client.Card()`
 | --- | --- | --- |
 | `arcana` | `str` | Type of arcana |
 | `desc` | `str` | Description of the card imagery and symbolism |
+| `id` | `str` |  |
 | `meaningRev` | `str` | Divinatory meaning when card is reversed |
 | `meaningUp` | `str` | Divinatory meaning when card is upright |
 | `name` | `str` | Full name of the tarot card |

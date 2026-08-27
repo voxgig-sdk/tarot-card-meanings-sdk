@@ -89,6 +89,7 @@ card = client.Card()
 | --- | --- | --- | --- |
 | `arcana` | `str` | Yes | Type of arcana |
 | `desc` | `str` | No | Description of the card imagery and symbolism |
+| `id` | `str` | No |  |
 | `meaningRev` | `str` | No | Divinatory meaning when card is reversed |
 | `meaningUp` | `str` | No | Divinatory meaning when card is upright |
 | `name` | `str` | Yes | Full name of the tarot card |

@@ -17,6 +17,7 @@ class Card
 {
     public string $arcana;
     public ?string $desc = null;
+    public ?string $id = null;
     public ?string $meaningRev = null;
     public ?string $meaningUp = null;
     public string $name;
@@ -36,6 +37,7 @@ class CardListMatch
 {
     public ?string $arcana = null;
     public ?string $desc = null;
+    public ?string $id = null;
     public ?string $meaningRev = null;
     public ?string $meaningUp = null;
     public ?string $name = null;

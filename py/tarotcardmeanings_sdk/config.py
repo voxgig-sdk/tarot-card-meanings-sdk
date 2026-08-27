@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -60,6 +61,10 @@ def make_config():
           {
             "name": "desc",
             "short": "Description of the card imagery and symbolism",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {

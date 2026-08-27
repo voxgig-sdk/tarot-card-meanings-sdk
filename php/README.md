@@ -38,7 +38,7 @@ try {
     // list() returns an array of Card records — iterate directly.
     $cards = $client->Card()->list();
     foreach ($cards as $item) {
-        echo $item["arcana"] . "\n";
+        echo $item["id"] . " " . $item["arcana"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -265,6 +265,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `arcana` | Type of arcana |
 | `desc` | Description of the card imagery and symbolism |
+| `id` |  |
 | `meaningRev` | Divinatory meaning when card is reversed |
 | `meaningUp` | Divinatory meaning when card is upright |
 | `name` | Full name of the tarot card |
@@ -298,6 +299,7 @@ Create an instance: `$card = $client->Card();`
 | --- | --- | --- |
 | `arcana` | `string` | Type of arcana |
 | `desc` | `string` | Description of the card imagery and symbolism |
+| `id` | `string` |  |
 | `meaningRev` | `string` | Divinatory meaning when card is reversed |
 | `meaningUp` | `string` | Divinatory meaning when card is upright |
 | `name` | `string` | Full name of the tarot card |

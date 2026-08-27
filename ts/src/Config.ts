@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -74,6 +75,10 @@ class Config {
         {
           "name": "desc",
           "short": "Description of the card imagery and symbolism",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "id",
           "type": "`$STRING`"
         },
         {

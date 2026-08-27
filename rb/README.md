@@ -37,7 +37,7 @@ begin
   # list returns an Array of Card records — iterate directly.
   cards = client.Card.list
   cards.each do |item|
-    puts "#{item["arcana"]}"
+    puts "#{item["id"]} #{item["arcana"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -255,6 +255,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `arcana` | Type of arcana |
 | `desc` | Description of the card imagery and symbolism |
+| `id` |  |
 | `meaningRev` | Divinatory meaning when card is reversed |
 | `meaningUp` | Divinatory meaning when card is upright |
 | `name` | Full name of the tarot card |
@@ -288,6 +289,7 @@ Create an instance: `card = client.Card`
 | --- | --- | --- |
 | `arcana` | `String` | Type of arcana |
 | `desc` | `String` | Description of the card imagery and symbolism |
+| `id` | `String` |  |
 | `meaningRev` | `String` | Divinatory meaning when card is reversed |
 | `meaningUp` | `String` | Divinatory meaning when card is upright |
 | `name` | `String` | Full name of the tarot card |

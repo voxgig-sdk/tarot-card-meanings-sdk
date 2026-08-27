@@ -95,6 +95,7 @@ card = client.Card
 | --- | --- | --- | --- |
 | `arcana` | `String` | Yes | Type of arcana |
 | `desc` | `String` | No | Description of the card imagery and symbolism |
+| `id` | `String` | No |  |
 | `meaningRev` | `String` | No | Divinatory meaning when card is reversed |
 | `meaningUp` | `String` | No | Divinatory meaning when card is upright |
 | `name` | `String` | Yes | Full name of the tarot card |

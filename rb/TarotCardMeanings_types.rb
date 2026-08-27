@@ -16,6 +16,9 @@
 # @!attribute [rw] desc
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] meaningRev
 #   @return [String, nil]
 #
@@ -36,6 +39,7 @@
 Card = Struct.new(
   :arcana,
   :desc,
+  :id,
   :meaningRev,
   :meaningUp,
   :name,
@@ -62,6 +66,9 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] desc
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] meaningRev
 #   @return [String, nil]
 #
@@ -82,6 +89,7 @@ CardLoadMatch = Struct.new(
 CardListMatch = Struct.new(
   :arcana,
   :desc,
+  :id,
   :meaningRev,
   :meaningUp,
   :name,
