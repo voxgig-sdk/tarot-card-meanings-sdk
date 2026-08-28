@@ -33,14 +33,7 @@ type CardLoadMatch struct {
 // CardListMatch is the typed request payload for Card.ListTyped.
 type CardListMatch struct {
 	Arcana *string `json:"arcana,omitempty"`
-	Desc *string `json:"desc,omitempty"`
-	Id *string `json:"id,omitempty"`
-	MeaningRev *string `json:"meaningRev,omitempty"`
-	MeaningUp *string `json:"meaningUp,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NameShort *string `json:"nameShort,omitempty"`
 	Suit *string `json:"suit,omitempty"`
-	Value *string `json:"value,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

@@ -63,39 +63,11 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] arcana
 #   @return [String, nil]
 #
-# @!attribute [rw] desc
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] meaningRev
-#   @return [String, nil]
-#
-# @!attribute [rw] meaningUp
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] nameShort
-#   @return [String, nil]
-#
 # @!attribute [rw] suit
-#   @return [String, nil]
-#
-# @!attribute [rw] value
 #   @return [String, nil]
 CardListMatch = Struct.new(
   :arcana,
-  :desc,
-  :id,
-  :meaningRev,
-  :meaningUp,
-  :name,
-  :nameShort,
   :suit,
-  :value,
   keyword_init: true
 )
 

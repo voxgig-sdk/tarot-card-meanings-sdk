@@ -29,13 +29,6 @@ export interface CardLoadMatch {
 
 export interface CardListMatch {
   arcana?: string
-  desc?: string
-  id?: string
-  meaningRev?: string
-  meaningUp?: string
-  name?: string
-  nameShort?: string
   suit?: string
-  value?: string
 }
 

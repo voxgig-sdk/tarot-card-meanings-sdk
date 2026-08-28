@@ -37,11 +37,4 @@ class CardLoadMatch(TypedDict):
 
 class CardListMatch(TypedDict, total=False):
     arcana: str
-    desc: str
-    id: str
-    meaningRev: str
-    meaningUp: str
-    name: str
-    nameShort: str
     suit: str
-    value: str

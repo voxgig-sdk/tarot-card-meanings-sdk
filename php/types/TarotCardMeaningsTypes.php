@@ -36,13 +36,6 @@ class CardLoadMatch
 class CardListMatch
 {
     public ?string $arcana = null;
-    public ?string $desc = null;
-    public ?string $id = null;
-    public ?string $meaningRev = null;
-    public ?string $meaningUp = null;
-    public ?string $name = null;
-    public ?string $nameShort = null;
     public ?string $suit = null;
-    public ?string $value = null;
 }
 
