@@ -83,6 +83,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "card",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -109,10 +113,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards",
-								"parts": []any{
-									"api",
-									"v1",
-									"cards",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "cards",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -123,6 +133,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.cards`",
+								},
+								"parts": []any{
+									"api",
+									"v1",
+									"cards",
 								},
 							},
 						},
@@ -147,15 +162,23 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards/{nameShort}",
-								"parts": []any{
-									"api",
-									"v1",
-									"cards",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"nameShort": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "cards",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -166,6 +189,12 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v1",
+									"cards",
+									"{id}",
 								},
 							},
 							map[string]any{
@@ -183,11 +212,19 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards/random",
-								"parts": []any{
-									"api",
-									"v1",
-									"cards",
-									"random",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "cards",
+									},
+									map[string]any{
+										"lit": "random",
+									},
 								},
 								"select": map[string]any{
 									"$action": "random",
@@ -199,6 +236,12 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"api",
+									"v1",
+									"cards",
+									"random",
+								},
 							},
 						},
 					},
@@ -209,6 +252,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

@@ -79,6 +79,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "card",
         ["op"] = {
           ["list"] = {
@@ -105,10 +109,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v1/cards",
-                ["parts"] = {
-                  "api",
-                  "v1",
-                  "cards",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "cards",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -119,6 +129,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.cards`",
+                },
+                ["parts"] = {
+                  "api",
+                  "v1",
+                  "cards",
                 },
               },
             },
@@ -143,15 +158,23 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v1/cards/{nameShort}",
-                ["parts"] = {
-                  "api",
-                  "v1",
-                  "cards",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["nameShort"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "cards",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -162,6 +185,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "v1",
+                  "cards",
+                  "{id}",
                 },
               },
               {
@@ -179,11 +208,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v1/cards/random",
-                ["parts"] = {
-                  "api",
-                  "v1",
-                  "cards",
-                  "random",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "cards",
+                  },
+                  {
+                    ["lit"] = "random",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "random",
@@ -194,6 +231,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "v1",
+                  "cards",
+                  "random",
                 },
               },
             },

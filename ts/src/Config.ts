@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -114,6 +125,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "card",
       "op": {
         "list": {
@@ -140,10 +155,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards",
-              "parts": [
-                "api",
-                "v1",
-                "cards"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "cards"
+                }
               ],
               "select": {
                 "exist": [
@@ -154,7 +175,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.cards`"
-              }
+              },
+              "parts": [
+                "api",
+                "v1",
+                "cards"
+              ]
             }
           ]
         },
@@ -178,17 +204,25 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards/{nameShort}",
-              "parts": [
-                "api",
-                "v1",
-                "cards",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "nameShort": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "cards"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -197,7 +231,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v1",
+                "cards",
+                "{id}"
+              ]
             },
             {
               "args": {
@@ -214,11 +254,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards/random",
-              "parts": [
-                "api",
-                "v1",
-                "cards",
-                "random"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "cards"
+                },
+                {
+                  "lit": "random"
+                }
               ],
               "select": {
                 "$action": "random",
@@ -229,7 +277,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v1",
+                "cards",
+                "random"
+              ]
             }
           ]
         }
@@ -245,6 +299,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

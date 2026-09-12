@@ -91,6 +91,10 @@ module TarotCardMeaningsConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "card",
           "op" => {
             "list" => {
@@ -117,10 +121,16 @@ module TarotCardMeaningsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v1/cards",
-                  "parts" => [
-                    "api",
-                    "v1",
-                    "cards",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "cards",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -132,6 +142,11 @@ module TarotCardMeaningsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.cards`",
                   },
+                  "parts" => [
+                    "api",
+                    "v1",
+                    "cards",
+                  ],
                 },
               ],
             },
@@ -155,17 +170,25 @@ module TarotCardMeaningsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v1/cards/{nameShort}",
-                  "parts" => [
-                    "api",
-                    "v1",
-                    "cards",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "nameShort" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "cards",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -175,6 +198,12 @@ module TarotCardMeaningsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v1",
+                    "cards",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {
@@ -191,11 +220,19 @@ module TarotCardMeaningsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v1/cards/random",
-                  "parts" => [
-                    "api",
-                    "v1",
-                    "cards",
-                    "random",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "cards",
+                    },
+                    {
+                      "lit" => "random",
+                    },
                   ],
                   "select" => {
                     "$action" => "random",
@@ -207,6 +244,12 @@ module TarotCardMeaningsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v1",
+                    "cards",
+                    "random",
+                  ],
                 },
               ],
             },
