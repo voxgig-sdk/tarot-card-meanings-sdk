@@ -105,7 +105,7 @@ local results, err = client:Card():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
+| TypeScript | `@voxgig-sdk/tarot-card-meanings-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
 | Python | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
 | PHP | `voxgig-sdk/tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/tarot-card-meanings-sdk/go` | `go get github.com/voxgig-sdk/tarot-card-meanings-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Card():list()
 ### TypeScript
 
 ```ts
-import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings'
+import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings-sdk'
 
 const client = new TarotCardMeaningsSDK()
 

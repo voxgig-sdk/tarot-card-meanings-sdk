@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings'
+import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings-sdk'
 
 const client = new TarotCardMeaningsSDK()
 ```
@@ -441,7 +441,7 @@ tarot-card-meanings/
 Import the SDK from the package root:
 
 ```ts
-import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings'
+import { TarotCardMeaningsSDK } from '@voxgig-sdk/tarot-card-meanings-sdk'
 ```
 
 ### Entity state
