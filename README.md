@@ -105,12 +105,12 @@ local results, err = client:Card():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/tarot-card-meanings-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
-| Python | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
-| PHP | `voxgig-sdk/tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
+| TypeScript | `@voxgig-sdk/tarot-card-meanings-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/tags) |
+| Python | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/tags) |
+| PHP | `voxgig-sdk/tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/tarot-card-meanings-sdk/go` | `go get github.com/voxgig-sdk/tarot-card-meanings-sdk/go@latest` |
-| Ruby | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
-| Lua | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/releases) |
+| Ruby | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/tags) |
+| Lua | `voxgig-sdk-tarot-card-meanings` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tarot-card-meanings-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/tarot-card-meanings-sdk/go-cli` | `go install github.com/voxgig-sdk/tarot-card-meanings-sdk/go-cli/cmd/tarot-card-meanings@latest` |
 | Go MCP server | `github.com/voxgig-sdk/tarot-card-meanings-sdk/go-mcp` | `go get github.com/voxgig-sdk/tarot-card-meanings-sdk/go-mcp@latest` |
 
