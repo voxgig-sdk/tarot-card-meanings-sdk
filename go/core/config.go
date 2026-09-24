@@ -91,50 +91,59 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "arcana",
+						"title": "Arcana",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Type of arcana",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "desc",
-						"short": "Description of the card imagery and symbolism",
+						"title": "Desc",
 						"type": "`$STRING`",
+						"short": "Description of the card imagery and symbolism",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "meaningRev",
-						"short": "Divinatory meaning when card is reversed",
+						"title": "Meaning Rev",
 						"type": "`$STRING`",
+						"short": "Divinatory meaning when card is reversed",
 					},
 					map[string]any{
 						"name": "meaningUp",
-						"short": "Divinatory meaning when card is upright",
+						"title": "Meaning Up",
 						"type": "`$STRING`",
+						"short": "Divinatory meaning when card is upright",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Full name of the tarot card",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameShort",
+						"title": "Name Short",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Short identifier for the card",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "suit",
-						"short": "Suit of the card (for Minor Arcana)",
+						"title": "Suit",
 						"type": "`$STRING`",
+						"short": "Suit of the card (for Minor Arcana)",
 					},
 					map[string]any{
 						"name": "value",
-						"short": "Numeric value or rank of the card",
+						"title": "Value",
 						"type": "`$STRING`",
+						"short": "Numeric value or rank of the card",
 					},
 				},
 				"id": map[string]any{
@@ -148,22 +157,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "arcana",
-											"orig": "arcana",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "suit",
-											"orig": "suit",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards",
@@ -178,20 +171,37 @@ func MakeConfig() map[string]any {
 										"lit": "cards",
 									},
 								},
+								"parts": []any{
+									"api",
+									"v1",
+									"cards",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.cards`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "arcana",
+											"orig": "arcana",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "suit",
+											"orig": "suit",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"arcana",
 										"suit",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.cards`",
-								},
-								"parts": []any{
-									"api",
-									"v1",
-									"cards",
 								},
 							},
 						},
@@ -201,26 +211,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "ar01",
-											"kind": "param",
-											"name": "id",
-											"orig": "name_short",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards/{nameShort}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"nameShort": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
@@ -235,34 +228,40 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"v1",
 									"cards",
 									"{id}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"nameShort": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
-									"query": []any{
+									"params": []any{
 										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "n",
-											"orig": "n",
-											"type": "`$INTEGER`",
+											"name": "id",
+											"orig": "name_short",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "ar01",
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v1/cards/random",
@@ -280,21 +279,33 @@ func MakeConfig() map[string]any {
 										"lit": "random",
 									},
 								},
-								"select": map[string]any{
-									"$action": "random",
-									"exist": []any{
-										"n",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"v1",
 									"cards",
 									"random",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "n",
+											"orig": "n",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "random",
+									"exist": []any{
+										"n",
+									},
 								},
 							},
 						},

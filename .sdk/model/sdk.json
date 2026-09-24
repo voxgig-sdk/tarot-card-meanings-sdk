@@ -24,76 +24,151 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "card": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "arcana",
-              "req": true,
-              "short": "Type of arcana",
-              "type": "`$STRING`"
+          "fields": {
+            "arcana": {
+              "a": true,
+              "h": "Arcana",
+              "n": "arcana",
+              "r": true,
+              "sh": "Type of arcana",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "desc",
-              "req": false,
-              "short": "Description of the card imagery and symbolism",
-              "type": "`$STRING`"
+            "desc": {
+              "a": true,
+              "h": "Desc",
+              "n": "desc",
+              "r": false,
+              "sh": "Description of the card imagery and symbolism",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "meaningRev",
-              "req": false,
-              "short": "Divinatory meaning when card is reversed",
-              "type": "`$STRING`"
+            "meaningRev": {
+              "a": true,
+              "h": "Meaning Rev",
+              "n": "meaningRev",
+              "r": false,
+              "sh": "Divinatory meaning when card is reversed",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "meaningUp",
-              "req": false,
-              "short": "Divinatory meaning when card is upright",
-              "type": "`$STRING`"
+            "meaningUp": {
+              "a": true,
+              "h": "Meaning Up",
+              "n": "meaningUp",
+              "r": false,
+              "sh": "Divinatory meaning when card is upright",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Full name of the tarot card",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Full name of the tarot card",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nameShort",
-              "req": true,
-              "short": "Short identifier for the card",
-              "type": "`$STRING`"
+            "nameShort": {
+              "a": true,
+              "h": "Name Short",
+              "n": "nameShort",
+              "r": true,
+              "sh": "Short identifier for the card",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "suit",
-              "req": false,
-              "short": "Suit of the card (for Minor Arcana)",
-              "type": "`$STRING`"
+            "suit": {
+              "a": true,
+              "h": "Suit",
+              "n": "suit",
+              "r": false,
+              "sh": "Suit of the card (for Minor Arcana)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "value",
-              "req": false,
-              "short": "Numeric value or rank of the card",
-              "type": "`$STRING`"
+            "value": {
+              "a": true,
+              "h": "Value",
+              "n": "value",
+              "r": false,
+              "sh": "Numeric value or rank of the card",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -105,37 +180,43 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/v1/cards",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "arcana",
-                        "orig": "arcana",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "arcana",
+                        "or": "arcana",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "suit",
-                        "orig": "suit",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "suit",
+                        "or": "suit",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/v1/cards",
-                    "json": "{\"operationId\":\"getCards\",\"parameters\":[{\"description\":\"Filter cards by suit (cups, pentacles, swords, wands, major)\",\"in\":\"query\",\"name\":\"suit\",\"required\":false,\"schema\":{\"enum\":[\"cups\",\"pentacles\",\"swords\",\"wands\",\"major\"],\"type\":\"string\"}},{\"description\":\"Filter cards by arcana type\",\"in\":\"query\",\"name\":\"arcana\",\"required\":false,\"schema\":{\"enum\":[\"major\",\"minor\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"cards\":{\"items\":{\"properties\":{\"arcana\":{\"description\":\"Type of arcana\",\"enum\":[\"Major Arcana\",\"Minor Arcana\"],\"example\":\"Major Arcana\",\"type\":\"string\"},\"desc\":{\"description\":\"Description of the card imagery and symbolism\",\"example\":\"A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.\",\"type\":\"string\"},\"meaningRev\":{\"description\":\"Divinatory meaning when card is reversed\",\"example\":\"Physician, Magus, mental disease, disgrace, disquiet.\",\"type\":\"string\"},\"meaningUp\":{\"description\":\"Divinatory meaning when card is upright\",\"example\":\"Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.\",\"type\":\"string\"},\"name\":{\"description\":\"Full name of the tarot card\",\"example\":\"The Magician\",\"type\":\"string\"},\"nameShort\":{\"description\":\"Short identifier for the card\",\"example\":\"ar01\",\"type\":\"string\"},\"suit\":{\"description\":\"Suit of the card (for Minor Arcana)\",\"enum\":[\"cups\",\"pentacles\",\"swords\",\"wands\",\"major\"],\"example\":\"major\",\"type\":\"string\"},\"value\":{\"description\":\"Numeric value or rank of the card\",\"example\":\"1\",\"type\":\"string\"}},\"required\":[\"name\",\"nameShort\",\"arcana\"],\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/v1/cards",
+                  "q": {
+                    "exist": [
+                      "arcana",
+                      "suit"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/v1/cards",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -146,13 +227,7 @@
                       "lit": "cards"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "arcana",
-                      "suit"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.cards`"
                   }
@@ -164,35 +239,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/v1/cards/{nameShort}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "ar01",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "name_short",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "ar01",
+                        "k": "param",
+                        "n": "id",
+                        "or": "name_short",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/v1/cards/{nameShort}",
-                    "json": "{\"operationId\":\"getCardByName\",\"parameters\":[{\"description\":\"Short name of the tarot card (e.g., 'ar01', 'wa02', 'cu10')\",\"example\":\"ar01\",\"in\":\"path\",\"name\":\"nameShort\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"arcana\":{\"description\":\"Type of arcana\",\"enum\":[\"Major Arcana\",\"Minor Arcana\"],\"example\":\"Major Arcana\",\"type\":\"string\"},\"desc\":{\"description\":\"Description of the card imagery and symbolism\",\"example\":\"A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.\",\"type\":\"string\"},\"meaningRev\":{\"description\":\"Divinatory meaning when card is reversed\",\"example\":\"Physician, Magus, mental disease, disgrace, disquiet.\",\"type\":\"string\"},\"meaningUp\":{\"description\":\"Divinatory meaning when card is upright\",\"example\":\"Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.\",\"type\":\"string\"},\"name\":{\"description\":\"Full name of the tarot card\",\"example\":\"The Magician\",\"type\":\"string\"},\"nameShort\":{\"description\":\"Short identifier for the card\",\"example\":\"ar01\",\"type\":\"string\"},\"suit\":{\"description\":\"Suit of the card (for Minor Arcana)\",\"enum\":[\"cups\",\"pentacles\",\"swords\",\"wands\",\"major\"],\"example\":\"major\",\"type\":\"string\"},\"value\":{\"description\":\"Numeric value or rank of the card\",\"example\":\"1\",\"type\":\"string\"}},\"required\":[\"name\",\"nameShort\",\"arcana\"],\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Card not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/v1/cards/{nameShort}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/v1/cards/{nameShort}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "nameShort": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -206,41 +285,42 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/v1/cards/random",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "n",
-                        "orig": "n",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "n",
+                        "or": "n",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/v1/cards/random",
-                    "json": "{\"operationId\":\"getRandomCard\",\"parameters\":[{\"description\":\"Number of random cards to return\",\"in\":\"query\",\"name\":\"n\",\"required\":false,\"schema\":{\"default\":1,\"maximum\":78,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"oneOf\":[{\"properties\":{\"arcana\":{\"description\":\"Type of arcana\",\"enum\":[\"Major Arcana\",\"Minor Arcana\"],\"example\":\"Major Arcana\",\"type\":\"string\"},\"desc\":{\"description\":\"Description of the card imagery and symbolism\",\"example\":\"A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.\",\"type\":\"string\"},\"meaningRev\":{\"description\":\"Divinatory meaning when card is reversed\",\"example\":\"Physician, Magus, mental disease, disgrace, disquiet.\",\"type\":\"string\"},\"meaningUp\":{\"description\":\"Divinatory meaning when card is upright\",\"example\":\"Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.\",\"type\":\"string\"},\"name\":{\"description\":\"Full name of the tarot card\",\"example\":\"The Magician\",\"type\":\"string\"},\"nameShort\":{\"description\":\"Short identifier for the card\",\"example\":\"ar01\",\"type\":\"string\"},\"suit\":{\"description\":\"Suit of the card (for Minor Arcana)\",\"enum\":[\"cups\",\"pentacles\",\"swords\",\"wands\",\"major\"],\"example\":\"major\",\"type\":\"string\"},\"value\":{\"description\":\"Numeric value or rank of the card\",\"example\":\"1\",\"type\":\"string\"}},\"required\":[\"name\",\"nameShort\",\"arcana\"],\"type\":\"object\"},{\"properties\":{\"cards\":{\"items\":{\"properties\":{\"arcana\":{\"description\":\"Type of arcana\",\"enum\":[\"Major Arcana\",\"Minor Arcana\"],\"example\":\"Major Arcana\",\"type\":\"string\"},\"desc\":{\"description\":\"Description of the card imagery and symbolism\",\"example\":\"A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.\",\"type\":\"string\"},\"meaningRev\":{\"description\":\"Divinatory meaning when card is reversed\",\"example\":\"Physician, Magus, mental disease, disgrace, disquiet.\",\"type\":\"string\"},\"meaningUp\":{\"description\":\"Divinatory meaning when card is upright\",\"example\":\"Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.\",\"type\":\"string\"},\"name\":{\"description\":\"Full name of the tarot card\",\"example\":\"The Magician\",\"type\":\"string\"},\"nameShort\":{\"description\":\"Short identifier for the card\",\"example\":\"ar01\",\"type\":\"string\"},\"suit\":{\"description\":\"Suit of the card (for Minor Arcana)\",\"enum\":[\"cups\",\"pentacles\",\"swords\",\"wands\",\"major\"],\"example\":\"major\",\"type\":\"string\"},\"value\":{\"description\":\"Numeric value or rank of the card\",\"example\":\"1\",\"type\":\"string\"}},\"required\":[\"name\",\"nameShort\",\"arcana\"],\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}]}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/v1/cards/random",
+                  "q": {
+                    "$action": "random",
+                    "exist": [
+                      "n"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/v1/cards/random",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -254,13 +334,7 @@
                       "lit": "random"
                     }
                   ],
-                  "select": {
-                    "$action": "random",
-                    "exist": [
-                      "n"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -689,13 +763,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -705,17 +779,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "card_ref01",
                 "srcdatavar": "card_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

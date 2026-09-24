@@ -76,16 +76,19 @@ declare class Config {
         card: {
             fields: ({
                 name: string;
+                title: string;
+                type: string;
                 req: boolean;
                 short: string;
-                type: string;
             } | {
                 name: string;
-                short: string;
+                title: string;
                 type: string;
+                short: string;
                 req?: undefined;
             } | {
                 name: string;
+                title: string;
                 type: string;
                 req?: undefined;
                 short?: undefined;
@@ -100,53 +103,38 @@ declare class Config {
                     input: string;
                     name: string;
                     points: {
-                        args: {
-                            query: {
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             lit: string;
                         }[];
-                        select: {
-                            exist: string[];
-                        };
+                        parts: string[];
+                        rename: {};
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            query: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                            }[];
+                        };
+                        select: {
+                            exist: string[];
+                        };
                     }[];
                 };
                 load: {
                     input: string;
                     name: string;
                     points: ({
-                        args: {
-                            params: {
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            }[];
-                            query?: undefined;
-                        };
                         kind: string;
                         method: string;
                         orig: string;
-                        rename: {
-                            param: {
-                                nameShort: string;
-                            };
-                        };
                         segments: ({
                             lit: string;
                             var?: undefined;
@@ -154,42 +142,60 @@ declare class Config {
                             var: string;
                             lit?: undefined;
                         })[];
-                        select: {
-                            exist: string[];
-                            $action?: undefined;
+                        parts: string[];
+                        rename: {
+                            param: {
+                                nameShort: string;
+                            };
                         };
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
-                    } | {
                         args: {
-                            query: {
-                                example: number;
-                                kind: string;
+                            params: {
                                 name: string;
                                 orig: string;
                                 type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: string;
                             }[];
-                            params?: undefined;
+                            query?: undefined;
                         };
+                        select: {
+                            exist: string[];
+                            $action?: undefined;
+                        };
+                    } | {
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             lit: string;
                         }[];
-                        select: {
-                            $action: string;
-                            exist: string[];
+                        parts: string[];
+                        rename: {
+                            param?: undefined;
                         };
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
-                        rename?: undefined;
+                        args: {
+                            query: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                example: number;
+                            }[];
+                            params?: undefined;
+                        };
+                        select: {
+                            $action: string;
+                            exist: string[];
+                        };
                     })[];
                 };
             };

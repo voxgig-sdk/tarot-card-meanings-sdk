@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,50 +132,59 @@ class Config {
       "fields": [
         {
           "name": "arcana",
+          "title": "Arcana",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Type of arcana",
-          "type": "`$STRING`"
+          "short": "Type of arcana"
         },
         {
           "name": "desc",
-          "short": "Description of the card imagery and symbolism",
-          "type": "`$STRING`"
+          "title": "Desc",
+          "type": "`$STRING`",
+          "short": "Description of the card imagery and symbolism"
         },
         {
           "name": "id",
+          "title": "Id",
           "type": "`$STRING`"
         },
         {
           "name": "meaningRev",
-          "short": "Divinatory meaning when card is reversed",
-          "type": "`$STRING`"
+          "title": "Meaning Rev",
+          "type": "`$STRING`",
+          "short": "Divinatory meaning when card is reversed"
         },
         {
           "name": "meaningUp",
-          "short": "Divinatory meaning when card is upright",
-          "type": "`$STRING`"
+          "title": "Meaning Up",
+          "type": "`$STRING`",
+          "short": "Divinatory meaning when card is upright"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Full name of the tarot card",
-          "type": "`$STRING`"
+          "short": "Full name of the tarot card"
         },
         {
           "name": "nameShort",
+          "title": "Name Short",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Short identifier for the card",
-          "type": "`$STRING`"
+          "short": "Short identifier for the card"
         },
         {
           "name": "suit",
-          "short": "Suit of the card (for Minor Arcana)",
-          "type": "`$STRING`"
+          "title": "Suit",
+          "type": "`$STRING`",
+          "short": "Suit of the card (for Minor Arcana)"
         },
         {
           "name": "value",
-          "short": "Numeric value or rank of the card",
-          "type": "`$STRING`"
+          "title": "Value",
+          "type": "`$STRING`",
+          "short": "Numeric value or rank of the card"
         }
       ],
       "id": {
@@ -196,22 +198,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "arcana",
-                    "orig": "arcana",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "suit",
-                    "orig": "suit",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards",
@@ -226,21 +212,38 @@ class Config {
                   "lit": "cards"
                 }
               ],
+              "parts": [
+                "api",
+                "v1",
+                "cards"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.cards`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "arcana",
+                    "orig": "arcana",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "suit",
+                    "orig": "suit",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "arcana",
                   "suit"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.cards`"
-              },
-              "parts": [
-                "api",
-                "v1",
-                "cards"
-              ]
+              }
             }
           ]
         },
@@ -249,26 +252,9 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "ar01",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "name_short",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards/{nameShort}",
-              "rename": {
-                "param": {
-                  "nameShort": "id"
-                }
-              },
               "segments": [
                 {
                   "lit": "api"
@@ -283,34 +269,40 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "api",
                 "v1",
                 "cards",
                 "{id}"
-              ]
-            },
-            {
+              ],
+              "rename": {
+                "param": {
+                  "nameShort": "id"
+                }
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
               "args": {
-                "query": [
+                "params": [
                   {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "n",
-                    "orig": "n",
-                    "type": "`$INTEGER`"
+                    "name": "id",
+                    "orig": "name_short",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "ar01"
                   }
                 ]
               },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
+            },
+            {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v1/cards/random",
@@ -328,22 +320,34 @@ class Config {
                   "lit": "random"
                 }
               ],
-              "select": {
-                "$action": "random",
-                "exist": [
-                  "n"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "api",
                 "v1",
                 "cards",
                 "random"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "n",
+                    "orig": "n",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  }
+                ]
+              },
+              "select": {
+                "$action": "random",
+                "exist": [
+                  "n"
+                ]
+              }
             }
           ]
         }

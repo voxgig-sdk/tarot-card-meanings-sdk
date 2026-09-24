@@ -1,0 +1,235 @@
+# Entity: card
+
+main: kit: entity: card: {
+
+  alias: field: {}
+
+  fields: {
+    arcana: {
+      h: "Arcana"
+      n: "arcana"
+      r: true
+      sh: "Type of arcana"
+      t: "`$STRING`"
+    }
+    desc: {
+      h: "Desc"
+      n: "desc"
+      r: false
+      sh: "Description of the card imagery and symbolism"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    meaningRev: {
+      h: "Meaning Rev"
+      n: "meaningRev"
+      r: false
+      sh: "Divinatory meaning when card is reversed"
+      t: "`$STRING`"
+    }
+    meaningUp: {
+      h: "Meaning Up"
+      n: "meaningUp"
+      r: false
+      sh: "Divinatory meaning when card is upright"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Full name of the tarot card"
+      t: "`$STRING`"
+    }
+    nameShort: {
+      h: "Name Short"
+      n: "nameShort"
+      r: true
+      sh: "Short identifier for the card"
+      t: "`$STRING`"
+    }
+    suit: {
+      h: "Suit"
+      n: "suit"
+      r: false
+      sh: "Suit of the card (for Minor Arcana)"
+      t: "`$STRING`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: false
+      sh: "Numeric value or rank of the card"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "card"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/v1/cards"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "arcana"
+                or: "arcana"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "suit"
+                or: "suit"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/v1/cards"
+          q: {
+            exist: [
+              "arcana"
+              "suit"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "cards"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.cards`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/v1/cards/{nameShort}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "ar01"
+                k: "param"
+                n: "id"
+                or: "name_short"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/v1/cards/{nameShort}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              nameShort: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "cards"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/v1/cards/random"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "n"
+                or: "n"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/v1/cards/random"
+          q: {
+            "$action": "random"
+            exist: [
+              "n"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "cards"
+            }
+            {
+              lit: "random"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

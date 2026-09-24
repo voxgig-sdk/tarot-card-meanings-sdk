@@ -113,50 +113,59 @@ class TarotCardMeaningsConfig
           'fields' => [
             [
               'name' => 'arcana',
+              'title' => 'Arcana',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Type of arcana',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'desc',
-              'short' => 'Description of the card imagery and symbolism',
+              'title' => 'Desc',
               'type' => '`$STRING`',
+              'short' => 'Description of the card imagery and symbolism',
             ],
             [
               'name' => 'id',
+              'title' => 'Id',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'meaningRev',
-              'short' => 'Divinatory meaning when card is reversed',
+              'title' => 'Meaning Rev',
               'type' => '`$STRING`',
+              'short' => 'Divinatory meaning when card is reversed',
             ],
             [
               'name' => 'meaningUp',
-              'short' => 'Divinatory meaning when card is upright',
+              'title' => 'Meaning Up',
               'type' => '`$STRING`',
+              'short' => 'Divinatory meaning when card is upright',
             ],
             [
               'name' => 'name',
+              'title' => 'Name',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Full name of the tarot card',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'nameShort',
+              'title' => 'Name Short',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Short identifier for the card',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'suit',
-              'short' => 'Suit of the card (for Minor Arcana)',
+              'title' => 'Suit',
               'type' => '`$STRING`',
+              'short' => 'Suit of the card (for Minor Arcana)',
             ],
             [
               'name' => 'value',
-              'short' => 'Numeric value or rank of the card',
+              'title' => 'Value',
               'type' => '`$STRING`',
+              'short' => 'Numeric value or rank of the card',
             ],
           ],
           'id' => [
@@ -170,22 +179,6 @@ class TarotCardMeaningsConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'arcana',
-                        'orig' => 'arcana',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'suit',
-                        'orig' => 'suit',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards',
@@ -200,20 +193,37 @@ class TarotCardMeaningsConfig
                       'lit' => 'cards',
                     ],
                   ],
+                  'parts' => [
+                    'api',
+                    'v1',
+                    'cards',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.cards`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'arcana',
+                        'orig' => 'arcana',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'suit',
+                        'orig' => 'suit',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'arcana',
                       'suit',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.cards`',
-                  ],
-                  'parts' => [
-                    'api',
-                    'v1',
-                    'cards',
                   ],
                 ],
               ],
@@ -223,26 +233,9 @@ class TarotCardMeaningsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'example' => 'ar01',
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'name_short',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards/{nameShort}',
-                  'rename' => [
-                    'param' => [
-                      'nameShort' => 'id',
-                    ],
-                  ],
                   'segments' => [
                     [
                       'lit' => 'api',
@@ -257,34 +250,40 @@ class TarotCardMeaningsConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'api',
                     'v1',
                     'cards',
                     '{id}',
                   ],
-                ],
-                [
+                  'rename' => [
+                    'param' => [
+                      'nameShort' => 'id',
+                    ],
+                  ],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
                   'args' => [
-                    'query' => [
+                    'params' => [
                       [
-                        'example' => 1,
-                        'kind' => 'query',
-                        'name' => 'n',
-                        'orig' => 'n',
-                        'type' => '`$INTEGER`',
+                        'name' => 'id',
+                        'orig' => 'name_short',
+                        'type' => '`$STRING`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                        'example' => 'ar01',
                       ],
                     ],
                   ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
+                  ],
+                ],
+                [
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v1/cards/random',
@@ -302,21 +301,33 @@ class TarotCardMeaningsConfig
                       'lit' => 'random',
                     ],
                   ],
-                  'select' => [
-                    '$action' => 'random',
-                    'exist' => [
-                      'n',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'api',
                     'v1',
                     'cards',
                     'random',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'n',
+                        'orig' => 'n',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 1,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    '$action' => 'random',
+                    'exist' => [
+                      'n',
+                    ],
                   ],
                 ],
               ],
