@@ -272,7 +272,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "name_short",
+                      "orig": "nameShort",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,

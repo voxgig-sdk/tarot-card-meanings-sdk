@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 TarotCardMeaningsUtility.registrar = ->(u) {
   u.clean = TarotCardMeaningsUtilities::Clean
+  u.clean_add = TarotCardMeaningsUtilities::CleanAdd
+  u.clean_explain = TarotCardMeaningsUtilities::CleanExplain
   u.done = TarotCardMeaningsUtilities::Done
   u.make_error = TarotCardMeaningsUtilities::MakeError
   u.feature_add = TarotCardMeaningsUtilities::FeatureAdd

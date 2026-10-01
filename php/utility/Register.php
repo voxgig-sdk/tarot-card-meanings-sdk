@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 TarotCardMeaningsUtility::setRegistrar(function (TarotCardMeaningsUtility $u): void {
     $u->clean = [TarotCardMeaningsClean::class, 'call'];
+    $u->clean_add = [TarotCardMeaningsClean::class, 'add'];
+    $u->clean_explain = [TarotCardMeaningsDone::class, 'clean_explain'];
     $u->done = [TarotCardMeaningsDone::class, 'call'];
     $u->make_error = [TarotCardMeaningsMakeError::class, 'call'];
     $u->feature_add = [TarotCardMeaningsFeatureAdd::class, 'call'];

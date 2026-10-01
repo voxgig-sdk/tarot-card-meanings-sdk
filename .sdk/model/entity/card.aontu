@@ -144,7 +144,7 @@ main: kit: entity: card: {
                 ex: "ar01"
                 k: "param"
                 n: "id"
-                or: "name_short"
+                or: "nameShort"
                 r: true
                 t: "`$STRING`"
               }
