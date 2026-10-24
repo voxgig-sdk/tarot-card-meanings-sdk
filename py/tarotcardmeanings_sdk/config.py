@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -213,20 +214,21 @@ def make_config():
                       "orig": "arcana",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "suit",
                       "orig": "suit",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "arcana",
-                    "suit",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],
@@ -285,6 +287,10 @@ def make_config():
                     "id",
                   ],
                 },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
               },
               {
                 "kind": "http",
@@ -328,9 +334,10 @@ def make_config():
                 },
                 "select": {
                   "$action": "random",
-                  "exist": [
-                    "n",
-                  ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

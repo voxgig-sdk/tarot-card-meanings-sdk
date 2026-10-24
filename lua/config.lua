@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -184,20 +185,21 @@ local function make_config()
                       ["orig"] = "arcana",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "suit",
                       ["orig"] = "suit",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "arcana",
-                    "suit",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -256,6 +258,10 @@ local function make_config()
                     "id",
                   },
                 },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
               },
               {
                 ["kind"] = "http",
@@ -299,9 +305,10 @@ local function make_config()
                 },
                 ["select"] = {
                   ["$action"] = "random",
-                  ["exist"] = {
-                    "n",
-                  },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

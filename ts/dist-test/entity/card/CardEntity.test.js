@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Card();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('card hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.TarotCardMeaningsSDK.test(offline).Card().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.TarotCardMeaningsSDK.test(offline).Card()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.TarotCardMeaningsSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Card().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.TarotCardMeaningsSDK.test().Card().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.TarotCardMeaningsSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Card().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Card().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.TarotCardMeaningsSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Card().list({ "arcana": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.TAROT_CARD_MEANINGS_TEST_LIVE;
         for (const op of ['list', 'load']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "arcana": { "a": true, "h": "Arcana", "n": "arcana", "r": true, "sh": "Type of arcana", "t": "`$STRING`", "key$": "arcana", "index$": 0 }, "desc": { "a": true, "h": "Desc", "n": "desc", "r": false, "sh": "Description of the card imagery and symbolism", "t": "`$STRING`", "key$": "desc", "index$": 1 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 2 }, "meaningRev": { "a": true, "h": "Meaning Rev", "n": "meaningRev", "r": false, "sh": "Divinatory meaning when card is reversed", "t": "`$STRING`", "key$": "meaningRev", "index$": 3 }, "meaningUp": { "a": true, "h": "Meaning Up", "n": "meaningUp", "r": false, "sh": "Divinatory meaning when card is upright", "t": "`$STRING`", "key$": "meaningUp", "index$": 4 }, "name": { "a": true, "h": "Name", "n": "name", "r": true, "sh": "Full name of the tarot card", "t": "`$STRING`", "key$": "name", "index$": 5 }, "nameShort": { "a": true, "h": "Name Short", "n": "nameShort", "r": true, "sh": "Short identifier for the card", "t": "`$STRING`", "key$": "nameShort", "index$": 6 }, "suit": { "a": true, "h": "Suit", "n": "suit", "r": false, "sh": "Suit of the card (for Minor Arcana)", "t": "`$STRING`", "key$": "suit", "index$": 7 }, "value": { "a": true, "h": "Value", "n": "value", "r": false, "sh": "Numeric value or rank of the card", "t": "`$STRING`", "key$": "value", "index$": 8 } }, "id": { "field": "id", "name": "id" }, "name": "card", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /api/v1/cards", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "arcana", "or": "arcana", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "suit", "or": "suit", "r": false, "t": "`$STRING`", "index$": 1 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards", "q": { "exist": ["arcana", "suit"] }, "r": {}, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }], "t": { "req": "`reqdata`", "res": "`body.cards`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /api/v1/cards/{nameShort}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "ar01", "k": "param", "n": "id", "or": "nameShort", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards/{nameShort}", "q": { "exist": ["id"] }, "r": { "param": { "nameShort": "id" } }, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /api/v1/cards/random", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 1, "k": "query", "n": "n", "or": "n", "r": false, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards/random", "q": { "$action": "random", "exist": ["n"] }, "r": {}, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }, { "lit": "random" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "card", "name__orig": "card", "Name": "Card", "name_": "card", "name-": "card", "NAME": "CARD", "index$": 0 }, { "active": true, "entity": "card", "key$": "BasicCardFlow", "kind": "basic", "name": "BasicCardFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "card_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "card_ref01", "srcdatavar": "card_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-card_ref01" } }], "index$": 1 }] }, 'Card', { "GET /api/v1/cards": { "protocol": "http", "parameters": [{ "name": "suit", "in": "query", "description": "Filter cards by suit (cups, pentacles, swords, wands, major)", "required": false, "schema": { "type": "string", "enum": ["cups", "pentacles", "swords", "wands", "major"] }, "index$": 0 }, { "name": "arcana", "in": "query", "description": "Filter cards by arcana type", "required": false, "schema": { "type": "string", "enum": ["major", "minor"] }, "index$": 1 }] }, "GET /api/v1/cards/{nameShort}": { "protocol": "http", "parameters": [{ "name": "nameShort", "in": "path", "description": "Short name of the tarot card (e.g., 'ar01', 'wa02', 'cu10')", "required": true, "schema": { "type": "string" }, "example": "ar01", "index$": 0 }] }, "GET /api/v1/cards/random": { "protocol": "http", "parameters": [{ "name": "n", "in": "query", "description": "Number of random cards to return", "required": false, "schema": { "type": "integer", "minimum": 1, "maximum": 78, "default": 1 }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "arcana": { "a": true, "h": "Arcana", "n": "arcana", "r": true, "sh": "Type of arcana", "t": "`$STRING`", "key$": "arcana", "index$": 0 }, "desc": { "a": true, "h": "Desc", "n": "desc", "r": false, "sh": "Description of the card imagery and symbolism", "t": "`$STRING`", "key$": "desc", "index$": 1 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 2 }, "meaningRev": { "a": true, "h": "Meaning Rev", "n": "meaningRev", "r": false, "sh": "Divinatory meaning when card is reversed", "t": "`$STRING`", "key$": "meaningRev", "index$": 3 }, "meaningUp": { "a": true, "h": "Meaning Up", "n": "meaningUp", "r": false, "sh": "Divinatory meaning when card is upright", "t": "`$STRING`", "key$": "meaningUp", "index$": 4 }, "name": { "a": true, "h": "Name", "n": "name", "r": true, "sh": "Full name of the tarot card", "t": "`$STRING`", "key$": "name", "index$": 5 }, "nameShort": { "a": true, "h": "Name Short", "n": "nameShort", "r": true, "sh": "Short identifier for the card", "t": "`$STRING`", "key$": "nameShort", "index$": 6 }, "suit": { "a": true, "h": "Suit", "n": "suit", "r": false, "sh": "Suit of the card (for Minor Arcana)", "t": "`$STRING`", "key$": "suit", "index$": 7 }, "value": { "a": true, "h": "Value", "n": "value", "r": false, "sh": "Numeric value or rank of the card", "t": "`$STRING`", "key$": "value", "index$": 8 } }, "id": { "field": "id", "name": "id" }, "name": "card", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /api/v1/cards", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "arcana", "or": "arcana", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "suit", "or": "suit", "r": false, "t": "`$STRING`", "index$": 1 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }], "t": { "req": "`reqdata`", "res": "`body.cards`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /api/v1/cards/{nameShort}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "ar01", "k": "param", "n": "id", "or": "nameShort", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards/{nameShort}", "q": { "exist": ["id"] }, "r": { "param": { "nameShort": "id" } }, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /api/v1/cards/random", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 1, "k": "query", "n": "n", "or": "n", "r": false, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/v1/cards/random", "q": { "$action": "random" }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "cards" }, { "lit": "random" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "card", "name__orig": "card", "Name": "Card", "name_": "card", "name-": "card", "NAME": "CARD", "index$": 0 }, { "active": true, "entity": "card", "key$": "BasicCardFlow", "kind": "basic", "name": "BasicCardFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "card_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "card_ref01", "srcdatavar": "card_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-card_ref01" } }], "index$": 1 }] }, 'Card', { "GET /api/v1/cards": { "protocol": "http", "parameters": [{ "name": "suit", "in": "query", "description": "Filter cards by suit (cups, pentacles, swords, wands, major)", "required": false, "schema": { "type": "string", "enum": ["cups", "pentacles", "swords", "wands", "major"] }, "index$": 0 }, { "name": "arcana", "in": "query", "description": "Filter cards by arcana type", "required": false, "schema": { "type": "string", "enum": ["major", "minor"] }, "index$": 1 }] }, "GET /api/v1/cards/{nameShort}": { "protocol": "http", "parameters": [{ "name": "nameShort", "in": "path", "description": "Short name of the tarot card (e.g., 'ar01', 'wa02', 'cu10')", "required": true, "schema": { "type": "string" }, "example": "ar01", "index$": 0 }] }, "GET /api/v1/cards/random": { "protocol": "http", "parameters": [{ "name": "n", "in": "query", "description": "Number of random cards to return", "required": false, "schema": { "type": "integer", "minimum": 1, "maximum": 78, "default": 1 }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -80,6 +127,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(card_ref01_data_dt0.id === card_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

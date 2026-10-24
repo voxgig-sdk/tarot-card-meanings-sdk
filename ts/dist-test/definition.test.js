@@ -20,23 +20,37 @@ const PLAN = [
             "suit": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "suit",
             "arcana"
+        ],
+        "queryArgs": [
+            {
+                "name": "arcana",
+                "wire": "arcana"
+            },
+            {
+                "name": "suit",
+                "wire": "suit"
+            }
         ],
         "auth": null,
         "status": 200,
         "sample": {
             "cards": [
                 {
-                    "arcana": "Major Arcana",
-                    "desc": "A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.",
-                    "meaningRev": "Physician, Magus, mental disease, disgrace, disquiet.",
-                    "meaningUp": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.",
                     "name": "The Magician",
                     "nameShort": "ar01",
+                    "value": "1",
+                    "arcana": "Major Arcana",
                     "suit": "major",
-                    "value": "1"
+                    "desc": "A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes.",
+                    "meaningUp": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.",
+                    "meaningRev": "Physician, Magus, mental disease, disgrace, disquiet."
                 }
             ]
         },
@@ -57,7 +71,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -81,11 +100,21 @@ const PLAN = [
         "action": "random",
         "args": [],
         "select": {
-            "n": "v1"
+            "n": 1
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "n"
+        ],
+        "queryArgs": [
+            {
+                "name": "n",
+                "wire": "n"
+            }
         ],
         "auth": null,
         "status": 200,

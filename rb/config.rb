@@ -79,6 +79,7 @@ module TarotCardMeaningsConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -196,20 +197,21 @@ module TarotCardMeaningsConfig
                         "orig" => "arcana",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "suit",
                         "orig" => "suit",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "arcana",
-                      "suit",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -268,6 +270,10 @@ module TarotCardMeaningsConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -311,9 +317,10 @@ module TarotCardMeaningsConfig
                   },
                   "select" => {
                     "$action" => "random",
-                    "exist" => [
-                      "n",
-                    ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

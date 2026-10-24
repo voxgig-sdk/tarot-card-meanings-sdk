@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -228,21 +229,22 @@ class Config {
                     "name": "arcana",
                     "orig": "arcana",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "suit",
                     "orig": "suit",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "arcana",
-                  "suit"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -300,6 +302,10 @@ class Config {
                 "exist": [
                   "id"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             },
             {
@@ -343,10 +349,11 @@ class Config {
                 ]
               },
               "select": {
-                "$action": "random",
-                "exist": [
-                  "n"
-                ]
+                "$action": "random"
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]

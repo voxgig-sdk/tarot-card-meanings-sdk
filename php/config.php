@@ -93,6 +93,7 @@ class TarotCardMeaningsConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -210,20 +211,21 @@ class TarotCardMeaningsConfig
                         'orig' => 'arcana',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'suit',
                         'orig' => 'suit',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'arcana',
-                      'suit',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -282,6 +284,10 @@ class TarotCardMeaningsConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -325,9 +331,10 @@ class TarotCardMeaningsConfig
                   ],
                   'select' => [
                     '$action' => 'random',
-                    'exist' => [
-                      'n',
-                    ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

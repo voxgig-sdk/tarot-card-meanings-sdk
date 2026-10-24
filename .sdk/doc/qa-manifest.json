@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Card names, descriptions, and divinatory meanings based on AE Waite&#39;s Pictorial Key to the Tarot (1910) for the Rider-Waite-Smith deck. Access via REST API with endpoints for getting cards and documentation.",
+      "Description of the card imagery and symbolism",
+      "Divinatory meaning when card is reversed",
+      "Divinatory meaning when card is upright",
+      "Full name of the tarot card",
+      "Production server",
+      "Successful response",
+      "Type of arcana"
+    ]
+  }
 }

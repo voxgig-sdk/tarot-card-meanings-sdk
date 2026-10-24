@@ -105,11 +105,9 @@ main: kit: entity: card: {
           }
           m: "GET"
           o: "/api/v1/cards"
-          q: {
-            exist: [
-              "arcana"
-              "suit"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -162,6 +160,10 @@ main: kit: entity: card: {
               nameShort: "id"
             }
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "api"
@@ -203,9 +205,10 @@ main: kit: entity: card: {
           o: "/api/v1/cards/random"
           q: {
             "$action": "random"
-            exist: [
-              "n"
-            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
